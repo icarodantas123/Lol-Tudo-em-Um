@@ -1,0 +1,1 @@
+return(string_delete(argument0,string_pos(argument1,argument0),string_length(argument1)))

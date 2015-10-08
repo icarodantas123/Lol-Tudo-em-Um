@@ -1,0 +1,1 @@
+string_copy(argument0,string_pos(argument1,argument0)+argument2,string_pos(argument3,argument0)+argument4)
