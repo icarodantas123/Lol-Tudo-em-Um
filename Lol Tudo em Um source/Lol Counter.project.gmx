@@ -2861,36 +2861,14 @@
     <sprite>sprites\sprite9</sprite>
     <sprite>sprites\mobafirespr</sprite>
     <sprite>sprites\sprite10</sprite>
-    <sprite>sprites\sprite85</sprite>
     <sprite>sprites\counter</sprite>
     <sprite>sprites\comps</sprite>
-    <sprite>sprites\Win_Rate</sprite>
     <sprite>sprites\noticias</sprite>
-    <sprite>sprites\pesquisar_spr</sprite>
-    <sprite>sprites\dicas_spr</sprite>
     <sprite>sprites\freeweek</sprite>
     <sprite>sprites\sprite12</sprite>
-    <sprite>sprites\spr_lanes</sprite>
-    <sprite>sprites\spr_tipo</sprite>
-    <sprite>sprites\spr_regiao</sprite>
-    <sprite>sprites\spr_fila</sprite>
-    <sprite>sprites\spr_tempo</sprite>
-    <sprites name="fila">
-      <sprite>sprites\fila_todas</sprite>
-      <sprite>sprites\fila_normal</sprite>
-      <sprite>sprites\fila_ranqueada</sprite>
-    </sprites>
-    <sprites name="tempo">
-      <sprite>sprites\tempo_mensal</sprite>
-      <sprite>sprites\tempo_semanal</sprite>
-      <sprite>sprites\tempo_diario</sprite>
-    </sprites>
     <sprite>sprites\internooo</sprite>
     <sprite>sprites\sprite13</sprite>
     <sprite>sprites\sprite14</sprite>
-    <sprite>sprites\sprite15</sprite>
-    <sprite>sprites\sprite23</sprite>
-    <sprite>sprites\sprite16</sprite>
     <sprite>sprites\sprite17</sprite>
     <sprite>sprites\update_disponivel_spr</sprite>
     <sprite>sprites\sprite18</sprite>
@@ -2899,28 +2877,9 @@
     <sprite>sprites\sprite38</sprite>
     <sprite>sprites\sprite19</sprite>
     <sprite>sprites\sprite21</sprite>
-    <sprites name="lanes">
-      <sprite>sprites\lane_todas</sprite>
-      <sprite>sprites\lane_jungle</sprite>
-      <sprite>sprites\lane_adc</sprite>
-      <sprite>sprites\lane_mid</sprite>
-      <sprite>sprites\lane_top</sprite>
-      <sprite>sprites\lane_sup</sprite>
-    </sprites>
-    <sprites name="tipo">
-      <sprite>sprites\tipo_maior</sprite>
-      <sprite>sprites\tipo_menor</sprite>
-    </sprites>
-    <sprites name="regiao">
-      <sprite>sprites\regiao_todas</sprite>
-      <sprite>sprites\regiao_br</sprite>
-      <sprite>sprites\regiao_na</sprite>
-      <sprite>sprites\regiao_kr</sprite>
-    </sprites>
     <sprite>sprites\sprite20</sprite>
     <sprite>sprites\feedback_spr</sprite>
     <sprite>sprites\sprite22</sprite>
-    <sprite>sprites\sprite33</sprite>
     <sprite>sprites\sprite28</sprite>
     <sprite>sprites\sprite32</sprite>
     <sprite>sprites\sprite50</sprite>
@@ -2939,6 +2898,8 @@
     <sprite>sprites\c_diamante</sprite>
     <sprite>sprites\c_mestre</sprite>
     <sprite>sprites\c_desafiante</sprite>
+    <sprite>sprites\sprite83</sprite>
+    <sprite>sprites\sprite53</sprite>
   </sprites>
   <backgrounds name="background">
     <background>background\lol_tudo_em_um_bqg_normal</background>
@@ -3159,6 +3120,7 @@
     <object>objects\pi_champ_10</object>
     <object>objects\pi_champ_11</object>
     <object>objects\pi_champ_12</object>
+    <object>objects\object183</object>
   </objects>
   <rooms name="rooms">
     <room>rooms\room3</room>

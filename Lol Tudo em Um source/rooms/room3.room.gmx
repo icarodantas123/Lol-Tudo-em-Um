@@ -66,9 +66,9 @@
     <instance objName="feedback" x="80" y="448" name="inst_E45A263E" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="noticias_button" x="96" y="280" name="inst_1E311C9B" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="update" x="100" y="220" name="inst_9BDBBF7B" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
-    <instance objName="loltudoemum" x="50" y="0" name="inst_40221BC1" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="update_disponivel" x="320" y="112" name="inst_49425957" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="comps_goto" x="256" y="280" name="inst_6245A468" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
+    <instance objName="object183" x="320" y="48" name="inst_F8EA8AB7" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
   </instances>
   <tiles/>
   <PhysicsWorld>0</PhysicsWorld>

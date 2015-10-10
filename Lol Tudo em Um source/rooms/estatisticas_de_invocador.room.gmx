@@ -52,7 +52,7 @@
   </views>
   <instances>
     <instance objName="controle" x="0" y="0" name="inst_FF65F811" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
-    <instance objName="object19" x="96" y="416" name="inst_6ED478ED" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
+    <instance objName="object19" x="0" y="416" name="inst_6ED478ED" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="object14" x="32" y="256" name="inst_57118E99" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="object13" x="32" y="192" name="inst_CA3771DF" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="op_gg" x="32" y="320" name="inst_140BC7D4" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>

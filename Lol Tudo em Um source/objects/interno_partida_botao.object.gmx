@@ -25,13 +25,28 @@
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>room_goto(partida_ativa_interno)
+            <string>new_3.text = new_2.text
+new_3.paiss = new_2.paiss
+new_2.text = new_1.text
+new_2.paiss = new_1.paiss
+new_1.text = global.texto
+new_1.paiss = global.pais
+ini_open("ss.ini");
+ini_write_string(room_get_name(room),"new_3.text",new_3.text)
+ini_write_string(room_get_name(room),"new_3.paiss",new_3.paiss)
+ini_write_string(room_get_name(room),"new_2.text",new_2.text)
+ini_write_string(room_get_name(room),"new_2.paiss",new_2.paiss)
+ini_write_string(room_get_name(room),"new_1.text",new_1.text)
+ini_write_string(room_get_name(room),"new_1.paiss",new_1.paiss)
+ini_close();
+
+room_goto(partida_ativa_interno)
 </string>
           </argument>
         </arguments>
       </action>
     </event>
-    <event eventtype="6" enumb="0">
+    <event eventtype="6" enumb="7">
       <action>
         <libid>1</libid>
         <id>603</id>
