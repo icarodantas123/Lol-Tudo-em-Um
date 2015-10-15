@@ -55,6 +55,7 @@
     <instance objName="room_control" x="0" y="32" name="inst_408ADD27" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="voltar_comps" x="0" y="416" name="inst_FBA29E71" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="carregando_como" x="320" y="224" name="inst_C6A77695" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
+    <instance objName="regular" x="176" y="448" name="inst_B00CF452" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
   </instances>
   <tiles/>
   <PhysicsWorld>0</PhysicsWorld>

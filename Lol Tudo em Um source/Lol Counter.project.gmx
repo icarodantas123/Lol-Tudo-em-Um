@@ -2900,6 +2900,11 @@
     <sprite>sprites\c_desafiante</sprite>
     <sprite>sprites\sprite83</sprite>
     <sprite>sprites\sprite54</sprite>
+    <sprite>sprites\osr_mini</sprite>
+    <sprite>sprites\csr_mini</sprite>
+    <sprite>sprites\ctw_mini</sprite>
+    <sprite>sprites\ha_mini</sprite>
+    <sprite>sprites\cr_mini</sprite>
   </sprites>
   <backgrounds name="background">
     <background>background\lol_tudo_em_um_bqg_normal</background>
@@ -2920,6 +2925,7 @@
     <font>fonts\font2</font>
     <font>fonts\font3</font>
     <font>fonts\font4</font>
+    <font>fonts\font5</font>
   </fonts>
   <objects name="objects">
     <objects name="Lol_invocadores">
@@ -3122,6 +3128,9 @@
     <object>objects\pi_champ_12</object>
     <object>objects\object183</object>
     <object>objects\doacao_draw</object>
+    <object>objects\draw_gamequeue</object>
+    <object>objects\regular</object>
+    <object>objects\maps</object>
   </objects>
   <rooms name="rooms">
     <room>rooms\room3</room>

@@ -59,6 +59,7 @@
     <instance objName="draw_upd5" x="0" y="256" name="inst_4DC220E9" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="lol_dicas_voltar" x="0" y="416" name="inst_9D11C366" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="carregando" x="320" y="224" name="inst_18731F46" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
+    <instance objName="regular" x="32" y="384" name="inst_DA1462B7" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
   </instances>
   <tiles/>
   <PhysicsWorld>0</PhysicsWorld>

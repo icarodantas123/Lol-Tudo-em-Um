@@ -140,8 +140,9 @@ if status == 0
 text = ds_map_find_value(async_load, "result");
 if string_pos('"mapId":',text) !=0
 {
-mapid = string_pick(text,'"mapId":',',')
-gamequeueconfigid = string_pick(text,'gameQueueConfigId":',',')
+global.mapid = string_pick(text,'"mapId":',',')
+global.gamequeueconfigid = string_pick(text,'gameQueueConfigId":',',')
+draw_gamequeue.pegou=1
 ///Fazendo jogador 1 do time azul:
 if string_pick(text,'"teamId":',',') = "100"
 {
