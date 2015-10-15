@@ -66,6 +66,7 @@ version="22.0.0"
 if version != version_new
 {
 instance_activate_object(update_disponivel)
+instance_deactivate_object(doacao_draw)
 }
    }
 </string>

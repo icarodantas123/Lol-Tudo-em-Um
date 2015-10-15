@@ -3,7 +3,7 @@
   <Configs name="configs">
     <Config>Configs\Default</Config>
   </Configs>
-  <datafiles number="336" name="datafiles">
+  <datafiles number="337" name="datafiles">
     <datafile>
       <name>Aatrox.png</name>
       <exists>-1</exists>
@@ -2147,23 +2147,6 @@
       <filename>Zyra.png</filename>
     </datafile>
     <datafile>
-      <name>Lol Tudo em Um.ico</name>
-      <exists>-1</exists>
-      <size>32038</size>
-      <exportAction>2</exportAction>
-      <exportDir></exportDir>
-      <overwrite>0</overwrite>
-      <freeData>-1</freeData>
-      <removeEnd>0</removeEnd>
-      <store>0</store>
-      <ConfigOptions>
-        <Config name="Default">
-          <CopyToMask>9223372036854775807</CopyToMask>
-        </Config>
-      </ConfigOptions>
-      <filename>Lol Tudo em Um.ico</filename>
-    </datafile>
-    <datafile>
       <name>kindred.png</name>
       <exists>-1</exists>
       <size>15877</size>
@@ -2843,6 +2826,23 @@
       </ConfigOptions>
       <filename>UNRANQUED.png</filename>
     </datafile>
+    <datafile>
+      <name>Lol_Tudo_em_Um.ico</name>
+      <exists>-1</exists>
+      <size>32038</size>
+      <exportAction>2</exportAction>
+      <exportDir></exportDir>
+      <overwrite>0</overwrite>
+      <freeData>-1</freeData>
+      <removeEnd>0</removeEnd>
+      <store>0</store>
+      <ConfigOptions>
+        <Config name="Default">
+          <CopyToMask>9223372036854775807</CopyToMask>
+        </Config>
+      </ConfigOptions>
+      <filename>Lol_Tudo_em_Um.ico</filename>
+    </datafile>
   </datafiles>
   <NewExtensions/>
   <sounds name="sound"/>
@@ -2861,6 +2861,8 @@
     <sprite>sprites\sprite9</sprite>
     <sprite>sprites\mobafirespr</sprite>
     <sprite>sprites\sprite10</sprite>
+    <sprite>sprites\setaV</sprite>
+    <sprite>sprites\seta</sprite>
     <sprite>sprites\counter</sprite>
     <sprite>sprites\comps</sprite>
     <sprite>sprites\noticias</sprite>
@@ -2883,8 +2885,6 @@
     <sprite>sprites\sprite28</sprite>
     <sprite>sprites\sprite32</sprite>
     <sprite>sprites\sprite50</sprite>
-    <sprite>sprites\sprite31</sprite>
-    <sprite>sprites\sprite34</sprite>
     <sprite>sprites\sprite37</sprite>
     <sprite>sprites\sprite42</sprite>
     <sprite>sprites\installico</sprite>
@@ -2899,7 +2899,7 @@
     <sprite>sprites\c_mestre</sprite>
     <sprite>sprites\c_desafiante</sprite>
     <sprite>sprites\sprite83</sprite>
-    <sprite>sprites\sprite53</sprite>
+    <sprite>sprites\sprite54</sprite>
   </sprites>
   <backgrounds name="background">
     <background>background\lol_tudo_em_um_bqg_normal</background>
@@ -3121,6 +3121,7 @@
     <object>objects\pi_champ_11</object>
     <object>objects\pi_champ_12</object>
     <object>objects\object183</object>
+    <object>objects\doacao_draw</object>
   </objects>
   <rooms name="rooms">
     <room>rooms\room3</room>

@@ -4,7 +4,7 @@
   <width>640</width>
   <height>480</height>
   <vsnap>32</vsnap>
-  <hsnap>32</hsnap>
+  <hsnap>10</hsnap>
   <isometric>0</isometric>
   <speed>30</speed>
   <persistent>0</persistent>
@@ -55,7 +55,7 @@
     <instance objName="forte_contra" x="224" y="96" name="inst_A1E4A384" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="bom_com" x="448" y="96" name="inst_905ED0FF" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="interno_counter" x="0" y="0" name="inst_28D45A5E" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
-    <instance objName="voltar_lol_counter" x="480" y="0" name="inst_AD6CFF58" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
+    <instance objName="voltar_lol_counter" x="500" y="0" name="inst_AD6CFF58" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="draw_fraco" x="0" y="64" name="inst_0B342A9D" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="draw_forte" x="224" y="64" name="inst_1C780468" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="draw_bom" x="448" y="64" name="inst_8C366698" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>

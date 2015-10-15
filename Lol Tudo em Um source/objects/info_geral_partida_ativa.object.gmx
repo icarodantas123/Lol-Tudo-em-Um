@@ -66,6 +66,18 @@ jogador9_disponivel=0
 jogador10_disponivel=0
 jogador11_disponivel=0
 jogador12_disponivel=0
+jogador1_name=""
+jogador2_name=""
+jogador3_name=""
+jogador4_name=""
+jogador5_name=""
+jogador6_name=""
+jogador7_name=""
+jogador8_name=""
+jogador9_name=""
+jogador10_name=""
+jogador11_name=""
+jogador12_name=""
 get=968768768
 get2=8717923874918
 </string>
@@ -95,7 +107,7 @@ get2=8717923874918
 if global.summoner_id != ""
 {
 trabalhando=1
-get=http_get('https://'+string_lower(global.pais)+'.api.pvp.net/observer-mode/rest/consumer/getSpectatorGameInfo/'+paiss+'/'+global.summoner_id+'?api_key=ca98daba-a8c1-4c4f-918e-5eebd5ae61d1')
+get=http_get('https://'+string_lower(global.pais)+'.api.pvp.net/observer-mode/rest/consumer/getSpectatorGameInfo/'+paiss+'/'+global.summoner_id+'?api_key='+global.api)
 }
 }
 </string>

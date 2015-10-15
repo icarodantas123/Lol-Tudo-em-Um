@@ -25,10 +25,11 @@
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>global.summoner_id=""
+            <string>global.api="ca98daba-a8c1-4c4f-918e-5eebd5ae61d1"
+global.summoner_id=""
 global.summoner_level=""
 
-get=http_get('https://'+string_lower(global.pais)+'.api.pvp.net/api/lol/'+string_lower(global.pais)+'/v1.4/summoner/by-name/'+global.texto+'?api_key=ca98daba-a8c1-4c4f-918e-5eebd5ae61d1')
+get=http_get('https://'+string_lower(global.pais)+'.api.pvp.net/api/lol/'+string_lower(global.pais)+'/v1.4/summoner/by-name/'+global.texto+'?api_key='+global.api)
 </string>
           </argument>
         </arguments>
