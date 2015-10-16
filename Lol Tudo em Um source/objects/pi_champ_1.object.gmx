@@ -185,7 +185,10 @@ if ds_map_find_value(async_load, "status") == 0
 {
 text = ds_map_find_value(async_load, "result");
 level = string_pick(text,'"summonerLevel":',',')
+if instance_exists(obj999)
+{
 obj999.text=info_geral_partida_ativa.jogador1_name+'('+level+')'///////////
+}
 tempo_de_vida-=1
 }
 }

@@ -26,8 +26,8 @@
           <argument>
             <kind>1</kind>
             <string>file=http_get_file("http://arquivosparadownload.mygamesonline.org/save.ini","save.ini");
-version_new="22.0.0"
-version="22.0.0"
+version_new="23.1.5"
+version="23.1.5"
 
 
 </string>

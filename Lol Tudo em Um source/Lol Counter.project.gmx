@@ -2887,7 +2887,6 @@
     <sprite>sprites\sprite50</sprite>
     <sprite>sprites\sprite37</sprite>
     <sprite>sprites\sprite42</sprite>
-    <sprite>sprites\installico</sprite>
     <sprite>sprites\sprite47</sprite>
     <sprite>sprites\sprite49</sprite>
     <sprite>sprites\sprite61</sprite>
@@ -2905,6 +2904,7 @@
     <sprite>sprites\ctw_mini</sprite>
     <sprite>sprites\ha_mini</sprite>
     <sprite>sprites\cr_mini</sprite>
+    <sprite>sprites\sprite58</sprite>
   </sprites>
   <backgrounds name="background">
     <background>background\lol_tudo_em_um_bqg_normal</background>
@@ -3131,6 +3131,7 @@
     <object>objects\draw_gamequeue</object>
     <object>objects\regular</object>
     <object>objects\maps</object>
+    <object>objects\help_comps</object>
   </objects>
   <rooms name="rooms">
     <room>rooms\room3</room>

@@ -75,6 +75,7 @@ instance_activate_region(view_xview[0], view_yview[0], view_wview[0], view_hview
             <string>if view_yview[0]&lt;room_height-480
 {
 view_yview[0]+=velocidade
+voltar_comps.y+=velocidade
 background_y[0]+=velocidade
 if velocidade&lt;20
 {
@@ -106,6 +107,7 @@ velocidade+=0.5
             <string>if view_yview[0]&gt;0
 {
 view_yview-=velocidade
+voltar_comps.y-=velocidade
 background_y[0]-=velocidade
 if velocidade&lt;20
 {

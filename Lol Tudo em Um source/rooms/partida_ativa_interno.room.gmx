@@ -67,8 +67,8 @@
     <instance objName="pi_champ_11" x="340" y="272" name="inst_E7281BE9" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="pi_champ_12" x="340" y="340" name="inst_5DF0F75A" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="controle" x="0" y="0" name="inst_5BBBAE34" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
-    <instance objName="draw_gamequeue" x="144" y="416" name="inst_0C3B1802" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
-    <instance objName="maps" x="536" y="376" name="inst_CD0B9B20" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
+    <instance objName="draw_gamequeue" x="240" y="376" name="inst_0C3B1802" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
+    <instance objName="maps" x="144" y="376" name="inst_CD0B9B20" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
   </instances>
   <tiles/>
   <PhysicsWorld>0</PhysicsWorld>
