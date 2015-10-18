@@ -114,148 +114,20 @@ text=string_replace_all(text,chr(34),"¨")
 nivel=string_digits(string_copy(text,string_pos("&lt;/span&gt;&lt;br&gt;",text)+string_length("&lt;/span&gt;&lt;br&gt;"),15))
 ///show_message("Nível: "+nivel)
 partidas=string_digits(string_copy(text,string_pos("PDL&lt;br&gt;",text)+string_length("PDL&lt;br&gt;"),12))
+///sabendo se player existe
+if string_pos('Não conseguimos encontrar um player com esse nome!',text) != 0 
+{
+show_message('Summoner name not found.')
+room_goto(estatisticas_de_invocador)
+}
 ///show_message(partidas+" partidas")
 pdl=string_digits(string_copy(text,string_pos("PDL&lt;br&gt;",text)-6,8))
 ///show_message(pdl+" pdl")
 porcentagem=string_digits(string_copy(text,string_pos("% de Vitórias&lt;/div&gt;&lt;hr&gt;&lt;ul&gt;",text)-6,8))
 ///show_message(porcentagem+"% de vitórias")
 ///Checando elo...
-if string_pos("bronze",text) !=0
-{
- if string_pos("Bronze I",text) !=0
- {
- elo = "BRONZE I"
- }
- if string_pos("Bronze II",text) !=0
- {
- elo = "BRONZE II"
- }
- if string_pos("Bronze III",text) !=0
- {
- elo = "BRONZE III"
- }
- if string_pos("Bronze IV",text) !=0
- {
- elo = "BRONZE IV"
- }
- if string_pos("Bronze V",text) !=0
- {
- elo = "BRONZE V"
- }
-}
-if string_pos("silver",text) !=0
-{
- if string_pos("Prata I",text) !=0
- {
- elo = "PRATA I"
- }
- if string_pos("Prata II",text) !=0
- {
- elo = "PRATA II"
- }
- if string_pos("Prata III",text) !=0
- {
- elo = "PRATA III"
- }
- if string_pos("Prata IV",text) !=0
- {
- elo = "PRATA IV"
- }
- if string_pos("Prata V",text) !=0
- {
- elo = "PRATA V"
- }
-}
-if string_pos("gold",text) !=0
-{
- if string_pos("Ouro I",text) !=0
- {
- elo = "OURO I"
- }
- if string_pos("Ouro II",text) !=0
- {
- elo = "OURO II"
- }
- if string_pos("Ouro III",text) !=0
- {
- elo = "OURO III"
- }
- if string_pos("Ouro IV",text) !=0
- {
- elo = "OURO IV"
- }
- if string_pos("Ouro V",text) !=0
- {
- elo = "OURO V"
- }
-}
-if string_pos("platinum",text) !=0
-{
- if string_pos("Platina I",text) !=0
- {
- elo = "PLATINA I"
- }
- if string_pos("Platina II",text) !=0
- {
- elo = "PLATINA II"
- }
- if string_pos("Platina III",text) !=0
- {
- elo = "PLATINA III"
- }
- if string_pos("Platina IV",text) !=0
- {
- elo = "PLATINA IV"
- }
- if string_pos("Platina V",text) !=0
- {
- elo = "PLATINA V"
- }
-}
-if string_pos("diamond",text) !=0
-{
- if string_pos("Diamante I",text) !=0
- {
- elo = "DIAMANTE I"
- }
- if string_pos("Diamante II",text) !=0
- {
- elo = "DIAMANTE II"
- }
- if string_pos("Diamante III",text) !=0
- {
- elo = "DIAMANTE III"
- }
- if string_pos("Diamante IV",text) !=0
- {
- elo = "DIAMANTE IV"
- }
- if string_pos("Diamante V",text) !=0
- {
- elo = "DIAMANTE V"
- }
-}
-if string_pos("master",text) !=0
-{
- if string_pos("Mestre",text) !=0
- {
- elo = "MESTRE"
- }
-}
-if string_pos("challenger",text) !=0
-{
- if string_pos("Desafiante",text) !=0
- {
- elo = "DESAFIANTE"
- }
-}
-if string_pos("unranked",text) !=0
-{
- if string_pos("Sem Classificação",text) !=0
- {
- elo = "Sem Classificação"
- }
-}
+tier=string_pick(text,'&lt;span class=¨','¨')
+elo=string_pick(text,'&lt;span class=¨'+tier+'¨&gt;','&lt;')
 sprite_index=sprite_add(string_pick(text,'&lt;/span&gt;&lt;img src=¨//static.teemo.com.br/lol/ranks/','¨'),1,0,1,0,0)
 ///show_message(elo)
 text=string_delete(text,string_pos(".png",text),4)//1

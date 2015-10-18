@@ -29,11 +29,11 @@
 draw_set_colour(c_white)
 if real(estatisticas_interno.partidas) !=0 and real(estatisticas_interno.partidas) !=1
 {
-draw_text(x,y,estatisticas_interno.partidas+" partidas")
+draw_text(x,y,estatisticas_interno.partidas+" matches")
 }
 else
 {
-draw_text(x,y,estatisticas_interno.partidas+" partida")
+draw_text(x,y,estatisticas_interno.partidas+" matche")
 }
 </string>
           </argument>

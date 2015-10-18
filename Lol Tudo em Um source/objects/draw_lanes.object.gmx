@@ -27,7 +27,7 @@
             <kind>1</kind>
             <string>draw_set_font(font1)
 draw_set_colour(c_yellow)
-draw_text(x,y,"Partidas na:")
+draw_text(x,y,"Matches in:")
 </string>
           </argument>
         </arguments>

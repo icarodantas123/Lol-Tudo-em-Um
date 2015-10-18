@@ -27,7 +27,7 @@
             <kind>1</kind>
             <string>draw_set_font(font1)
 draw_set_colour(c_white)
-draw_text(x,y,"Nível: "+estatisticas_interno.nivel)
+draw_text(x,y,"Level: "+estatisticas_interno.nivel)
 </string>
           </argument>
         </arguments>
