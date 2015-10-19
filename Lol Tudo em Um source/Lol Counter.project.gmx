@@ -3,7 +3,7 @@
   <Configs name="configs">
     <Config>Configs\Default</Config>
   </Configs>
-  <datafiles number="338" name="datafiles">
+  <datafiles number="339" name="datafiles">
     <datafile>
       <name>Aatrox.png</name>
       <exists>-1</exists>
@@ -2827,6 +2827,23 @@
       <filename>Lol_Tudo_em_Um.ico</filename>
     </datafile>
     <datafile>
+      <name>UNRANKED.png</name>
+      <exists>-1</exists>
+      <size>30780</size>
+      <exportAction>2</exportAction>
+      <exportDir></exportDir>
+      <overwrite>0</overwrite>
+      <freeData>-1</freeData>
+      <removeEnd>0</removeEnd>
+      <store>0</store>
+      <ConfigOptions>
+        <Config name="Default">
+          <CopyToMask>9223372036854775807</CopyToMask>
+        </Config>
+      </ConfigOptions>
+      <filename>UNRANKED.png</filename>
+    </datafile>
+    <datafile>
       <name>UNRANKED_.png</name>
       <exists>-1</exists>
       <size>30780</size>
@@ -2921,6 +2938,7 @@
     <script>scripts\string_delete_ext.gml</script>
     <script>scripts\effect_button_enter.gml</script>
     <script>scripts\effect_button_leave.gml</script>
+    <script>scripts\pega_server.gml</script>
   </scripts>
   <fonts name="fonts">
     <font>fonts\font1</font>
@@ -3112,28 +3130,11 @@
     </objects>
     <object>objects\interno_partida_botao</object>
     <object>objects\voltar_ativa_pp</object>
-    <object>objects\pegar_summoner_id</object>
-    <object>objects\info_geral_partida_ativa</object>
-    <object>objects\espelhoo</object>
-    <object>objects\espelho</object>
-    <object>objects\pi_champ_1</object>
-    <object>objects\pi_champ_2</object>
-    <object>objects\pi_champ_3</object>
-    <object>objects\pi_champ_4</object>
-    <object>objects\pi_champ_5</object>
-    <object>objects\pi_champ_6</object>
-    <object>objects\pi_champ_7</object>
-    <object>objects\pi_champ_8</object>
-    <object>objects\pi_champ9</object>
-    <object>objects\pi_champ_10</object>
-    <object>objects\pi_champ_11</object>
-    <object>objects\pi_champ_12</object>
     <object>objects\object183</object>
     <object>objects\doacao_draw</object>
-    <object>objects\draw_gamequeue</object>
     <object>objects\regular</object>
-    <object>objects\maps</object>
     <object>objects\help_comps</object>
+    <object>objects\current_game</object>
   </objects>
   <rooms name="rooms">
     <room>rooms\room3</room>

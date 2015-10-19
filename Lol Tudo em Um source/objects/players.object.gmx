@@ -53,8 +53,6 @@ textbox.select_on_focus=false
           <argument>
             <kind>1</kind>
             <string>draw_self();
-draw_set_color(c_white);
-draw_set_font(font1);
 textbox_draw(textbox,x,y,sprite_width-10,sprite_height-10);
 global.texto=textbox.text;
 
