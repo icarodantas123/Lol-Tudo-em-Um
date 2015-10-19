@@ -60,6 +60,58 @@ jogador12_exists=0
         </arguments>
       </action>
     </event>
+    <event eventtype="5" enumb="40">
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>if view_yview[0]&lt;480
+{
+view_yview[0]+=15
+}
+</string>
+          </argument>
+        </arguments>
+      </action>
+    </event>
+    <event eventtype="5" enumb="38">
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>if view_yview[0]&gt;0
+{
+view_yview[0]-=15
+}
+</string>
+          </argument>
+        </arguments>
+      </action>
+    </event>
     <event eventtype="7" enumb="62">
       <action>
         <libid>1</libid>
@@ -77,7 +129,9 @@ jogador12_exists=0
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>/// Verificando get1:
+            <string>x100=-1
+x200=-1
+/// Verificando get1:
 if ds_map_find_value(async_load, "id") == get1
 {
 if ds_map_find_value(async_load, "status") == 0
@@ -87,7 +141,7 @@ text = ds_map_find_value(async_load, "result");
 if string_pos('HTTP ERROR ',text)
 {
 show_message('The name does not exist or connection error.')
-room_goto(estatisticas_de_invocador)
+room_goto(partida_ativa)
 }
 /// Pegando id do invocador:
 global.jogador_id=string_pick(text,'"id":',',')
@@ -108,10 +162,114 @@ ids=''
 if string_pos('HTTP Status ',text)
 {
 show_message('Possible errors may have occurred:#1- The player is not in a match;#2- The player is in a match that can not be seen in spectator mode;')
-room_goto(estatisticas_de_invocador)
+room_goto(partida_ativa)
 }
 global.gameQueueConfigId=string_pick(text,'"gameQueueConfigId":',',')
 global.mapid=string_pick(text,'"mapId":',',')
+/// Pegando os banidos:
+textt=string_delete(text,1,string_pos('"bannedChampions":',text))
+/// Pegando banido1:
+if string_pos('"championId":',textt) !=0
+{
+ban1=string_pick(textt,'"championId":',',')
+textt=string_replace(textt,'"championId":','')
+if string_pick(textt,'"teamId":',',') = '100'
+{
+x100+=1
+tile_set_scale(tile_add(background_add(ban1+'.jpg',0,1),0,0,120,120,0+x100*32,410,1),0.266,0.266)
+}
+else
+{
+x200+=1
+tile_set_scale(tile_add(background_add(ban1+'.jpg',0,1),0,0,120,120,0+x200*32,442,1),0.266,0.266)
+}
+textt=string_replace(textt,'"teamId":','')
+}
+/// Pegando banido2:
+if string_pos('"championId":',textt) !=0
+{
+ban2=string_pick(textt,'"championId":',',')
+textt=string_replace(textt,'"championId":','')
+if string_pick(textt,'"teamId":',',') = '100'
+{
+x100+=1
+tile_set_scale(tile_add(background_add(ban2+'.jpg',0,1),0,0,120,120,0+x100*32,410,1),0.266,0.266)
+}
+else
+{
+x200+=1
+tile_set_scale(tile_add(background_add(ban2+'.jpg',0,1),0,0,120,120,0+x200*32,442,1),0.266,0.266)
+}
+textt=string_replace(textt,'"teamId":','')
+}
+/// Pegando banido3:
+if string_pos('"championId":',textt) !=0
+{
+ban3=string_pick(textt,'"championId":',',')
+textt=string_replace(textt,'"championId":','')
+if string_pick(textt,'"teamId":',',') = '100'
+{
+x100+=1
+tile_set_scale(tile_add(background_add(ban3+'.jpg',0,1),0,0,120,120,0+x100*32,410,1),0.266,0.266)
+}
+else
+{
+x200+=1
+tile_set_scale(tile_add(background_add(ban3+'.jpg',0,1),0,0,120,120,0+x200*32,442,1),0.266,0.266)
+}
+textt=string_replace(textt,'"teamId":','')
+}
+/// Pegando banido4:
+if string_pos('"championId":',textt) !=0
+{
+ban4=string_pick(textt,'"championId":',',')
+textt=string_replace(textt,'"championId":','')
+if string_pick(textt,'"teamId":',',') = '100'
+{
+x100+=1
+tile_set_scale(tile_add(background_add(ban4+'.jpg',0,1),0,0,120,120,0+x100*32,410,1),0.266,0.266)
+}
+else
+{
+x200+=1
+tile_set_scale(tile_add(background_add(ban4+'.jpg',0,1),0,0,120,120,0+x200*32,442,1),0.266,0.266)
+}
+textt=string_replace(textt,'"teamId":','')
+}
+/// Pegando banido5:
+if string_pos('"championId":',textt) !=0
+{
+ban5=string_pick(textt,'"championId":',',')
+textt=string_replace(textt,'"championId":','')
+if string_pick(textt,'"teamId":',',') = '100'
+{
+x100+=1
+tile_set_scale(tile_add(background_add(ban5+'.jpg',0,1),0,0,120,120,0+x100*32,410,1),0.266,0.266)
+}
+else
+{
+x200+=1
+tile_set_scale(tile_add(background_add(ban5+'.jpg',0,1),0,0,120,120,0+x200*32,442,1),0.266,0.266)
+}
+textt=string_replace(textt,'"teamId":','')
+}
+/// Pegando banido6:
+if string_pos('"championId":',textt) !=0
+{
+ban6=string_pick(textt,'"championId":',',')
+textt=string_replace(textt,'"championId":','')
+if string_pick(textt,'"teamId":',',') = '100'
+{
+x100+=1
+tile_set_scale(tile_add(background_add(ban6+'.jpg',0,1),0,0,120,120,0+x100*32,410,1),0.266,0.266)
+}
+else
+{
+x200+=1
+tile_set_scale(tile_add(background_add(ban6+'.jpg',0,1),0,0,120,120,0+x200*32,442,1),0.266,0.266)
+}
+textt=string_replace(textt,'"teamId":','')
+}
 /// Vendo se existe o jogador 1:
 if string_pick(text,'"teamId":',',') = '100'
 {
@@ -129,6 +287,8 @@ text=string_replace(text,'"championId":','')
 text=string_replace(text,'"spell1Id":','')
 text=string_replace(text,'"spell2Id":','')
 ids+=ds_list_find_value(jogador1,0)+','
+
+tile_set_scale(tile_add(background_add(ds_list_find_value(jogador1,2)+'.jpg',0,1),0,0,120,120,0,0,1),0.533,0.533) ///Draw_champ
 }
 
 /// Vendo se existe o jogador 2:
@@ -148,6 +308,8 @@ text=string_replace(text,'"championId":','')
 text=string_replace(text,'"spell1Id":','')
 text=string_replace(text,'"spell2Id":','')
 ids+=ds_list_find_value(jogador2,0)+','
+
+tile_set_scale(tile_add(background_add(ds_list_find_value(jogador2,2)+'.jpg',0,1),0,0,120,120,0,68,1),0.533,0.533)
 }
 
 /// Vendo se existe o jogador 3:
@@ -167,6 +329,8 @@ text=string_replace(text,'"championId":','')
 text=string_replace(text,'"spell1Id":','')
 text=string_replace(text,'"spell2Id":','')
 ids+=ds_list_find_value(jogador3,0)+','
+
+tile_set_scale(tile_add(background_add(ds_list_find_value(jogador3,2)+'.jpg',0,1),0,0,120,120,0,136,1),0.533,0.533)
 }
 
 /// Vendo se existe o jogador 4:
@@ -186,6 +350,8 @@ text=string_replace(text,'"championId":','')
 text=string_replace(text,'"spell1Id":','')
 text=string_replace(text,'"spell2Id":','')
 ids+=ds_list_find_value(jogador4,0)+','
+
+tile_set_scale(tile_add(background_add(ds_list_find_value(jogador4,2)+'.jpg',0,1),0,0,120,120,0,204,1),0.533,0.533)
 }
 
 /// Vendo se existe o jogador 5:
@@ -205,6 +371,8 @@ text=string_replace(text,'"championId":','')
 text=string_replace(text,'"spell1Id":','')
 text=string_replace(text,'"spell2Id":','')
 ids+=ds_list_find_value(jogador5,0)+','
+
+tile_set_scale(tile_add(background_add(ds_list_find_value(jogador5,2)+'.jpg',0,1),0,0,120,120,0,272,1),0.533,0.533)
 }
 
 /// Vendo se existe o jogador 6:
@@ -224,6 +392,8 @@ text=string_replace(text,'"championId":','')
 text=string_replace(text,'"spell1Id":','')
 text=string_replace(text,'"spell2Id":','')
 ids+=ds_list_find_value(jogador6,0)+','
+
+tile_set_scale(tile_add(background_add(ds_list_find_value(jogador6,2)+'.jpg',0,1),0,0,120,120,0,310,1),0.533,0.533)
 }
 
 /// Vendo se existe o jogador 7:
@@ -243,6 +413,8 @@ text=string_replace(text,'"championId":','')
 text=string_replace(text,'"spell1Id":','')
 text=string_replace(text,'"spell2Id":','')
 ids+=ds_list_find_value(jogador7,0)+','
+
+tile_set_scale(tile_add(background_add(ds_list_find_value(jogador7,2)+'.jpg',0,1),0,0,120,120,0,538,1),0.533,0.533)
 }
 
 /// Vendo se existe o jogador 8:
@@ -262,6 +434,8 @@ text=string_replace(text,'"championId":','')
 text=string_replace(text,'"spell1Id":','')
 text=string_replace(text,'"spell2Id":','')
 ids+=ds_list_find_value(jogador8,0)+','
+
+tile_set_scale(tile_add(background_add(ds_list_find_value(jogador8,2)+'.jpg',0,1),0,0,120,120,0,606,1),0.533,0.533)
 }
 
 /// Vendo se existe o jogador 9:
@@ -281,6 +455,8 @@ text=string_replace(text,'"championId":','')
 text=string_replace(text,'"spell1Id":','')
 text=string_replace(text,'"spell2Id":','')
 ids+=ds_list_find_value(jogador9,0)+','
+
+tile_set_scale(tile_add(background_add(ds_list_find_value(jogador9,2)+'.jpg',0,1),0,0,120,120,0,674,1),0.533,0.533)
 }
 
 /// Vendo se existe o jogador 10:
@@ -300,6 +476,8 @@ text=string_replace(text,'"championId":','')
 text=string_replace(text,'"spell1Id":','')
 text=string_replace(text,'"spell2Id":','')
 ids+=ds_list_find_value(jogador10,0)+','
+
+tile_set_scale(tile_add(background_add(ds_list_find_value(jogador10,2)+'.jpg',0,1),0,0,120,120,0,742,1),0.533,0.533)
 }
 
 /// Vendo se existe o jogador 11:
@@ -319,6 +497,8 @@ text=string_replace(text,'"championId":','')
 text=string_replace(text,'"spell1Id":','')
 text=string_replace(text,'"spell2Id":','')
 ids+=ds_list_find_value(jogador11,0)+','
+
+tile_set_scale(tile_add(background_add(ds_list_find_value(jogador11,2)+'.jpg',0,1),0,0,120,120,0,810,1),0.533,0.533)
 }
 
 /// Vendo se existe o jogador 12:
@@ -338,6 +518,8 @@ text=string_replace(text,'"championId":','')
 text=string_replace(text,'"spell1Id":','')
 text=string_replace(text,'"spell2Id":','')
 ids+=ds_list_find_value(jogador12,0)+','
+
+tile_set_scale(tile_add(background_add(ds_list_find_value(jogador12,2)+'.jpg',0,1),0,0,120,120,0,878,1),0.533,0.533)
 }
 get3=http_get('https://'+string_lower(global.pais)+'.api.pvp.net/api/lol/'+string_lower(global.pais)+'/v1.4/summoner/'+ids+'?api_key='+global.api)
 }

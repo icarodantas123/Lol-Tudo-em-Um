@@ -3,7 +3,7 @@
   <Configs name="configs">
     <Config>Configs\Default</Config>
   </Configs>
-  <datafiles number="466" name="datafiles">
+  <datafiles number="480" name="datafiles">
     <datafile>
       <name>Aatrox.png</name>
       <exists>-1</exists>
@@ -5019,6 +5019,244 @@
       </ConfigOptions>
       <filename>432.jpg</filename>
     </datafile>
+    <datafile>
+      <name>feitico_1.png</name>
+      <exists>-1</exists>
+      <size>3514</size>
+      <exportAction>2</exportAction>
+      <exportDir></exportDir>
+      <overwrite>0</overwrite>
+      <freeData>-1</freeData>
+      <removeEnd>0</removeEnd>
+      <store>0</store>
+      <ConfigOptions>
+        <Config name="Default">
+          <CopyToMask>9223372036854775807</CopyToMask>
+        </Config>
+      </ConfigOptions>
+      <filename>feitico_1.png</filename>
+    </datafile>
+    <datafile>
+      <name>feitico_2.png</name>
+      <exists>-1</exists>
+      <size>3307</size>
+      <exportAction>2</exportAction>
+      <exportDir></exportDir>
+      <overwrite>0</overwrite>
+      <freeData>-1</freeData>
+      <removeEnd>0</removeEnd>
+      <store>0</store>
+      <ConfigOptions>
+        <Config name="Default">
+          <CopyToMask>9223372036854775807</CopyToMask>
+        </Config>
+      </ConfigOptions>
+      <filename>feitico_2.png</filename>
+    </datafile>
+    <datafile>
+      <name>feitico_3.png</name>
+      <exists>-1</exists>
+      <size>3723</size>
+      <exportAction>2</exportAction>
+      <exportDir></exportDir>
+      <overwrite>0</overwrite>
+      <freeData>-1</freeData>
+      <removeEnd>0</removeEnd>
+      <store>0</store>
+      <ConfigOptions>
+        <Config name="Default">
+          <CopyToMask>9223372036854775807</CopyToMask>
+        </Config>
+      </ConfigOptions>
+      <filename>feitico_3.png</filename>
+    </datafile>
+    <datafile>
+      <name>feitico_4.png</name>
+      <exists>-1</exists>
+      <size>3757</size>
+      <exportAction>2</exportAction>
+      <exportDir></exportDir>
+      <overwrite>0</overwrite>
+      <freeData>-1</freeData>
+      <removeEnd>0</removeEnd>
+      <store>0</store>
+      <ConfigOptions>
+        <Config name="Default">
+          <CopyToMask>9223372036854775807</CopyToMask>
+        </Config>
+      </ConfigOptions>
+      <filename>feitico_4.png</filename>
+    </datafile>
+    <datafile>
+      <name>feitico_6.png</name>
+      <exists>-1</exists>
+      <size>3287</size>
+      <exportAction>2</exportAction>
+      <exportDir></exportDir>
+      <overwrite>0</overwrite>
+      <freeData>-1</freeData>
+      <removeEnd>0</removeEnd>
+      <store>0</store>
+      <ConfigOptions>
+        <Config name="Default">
+          <CopyToMask>9223372036854775807</CopyToMask>
+        </Config>
+      </ConfigOptions>
+      <filename>feitico_6.png</filename>
+    </datafile>
+    <datafile>
+      <name>feitico_7.png</name>
+      <exists>-1</exists>
+      <size>3623</size>
+      <exportAction>2</exportAction>
+      <exportDir></exportDir>
+      <overwrite>0</overwrite>
+      <freeData>-1</freeData>
+      <removeEnd>0</removeEnd>
+      <store>0</store>
+      <ConfigOptions>
+        <Config name="Default">
+          <CopyToMask>9223372036854775807</CopyToMask>
+        </Config>
+      </ConfigOptions>
+      <filename>feitico_7.png</filename>
+    </datafile>
+    <datafile>
+      <name>feitico_10.png</name>
+      <exists>-1</exists>
+      <size>3520</size>
+      <exportAction>2</exportAction>
+      <exportDir></exportDir>
+      <overwrite>0</overwrite>
+      <freeData>-1</freeData>
+      <removeEnd>0</removeEnd>
+      <store>0</store>
+      <ConfigOptions>
+        <Config name="Default">
+          <CopyToMask>9223372036854775807</CopyToMask>
+        </Config>
+      </ConfigOptions>
+      <filename>feitico_10.png</filename>
+    </datafile>
+    <datafile>
+      <name>feitico_11.png</name>
+      <exists>-1</exists>
+      <size>3477</size>
+      <exportAction>2</exportAction>
+      <exportDir></exportDir>
+      <overwrite>0</overwrite>
+      <freeData>-1</freeData>
+      <removeEnd>0</removeEnd>
+      <store>0</store>
+      <ConfigOptions>
+        <Config name="Default">
+          <CopyToMask>9223372036854775807</CopyToMask>
+        </Config>
+      </ConfigOptions>
+      <filename>feitico_11.png</filename>
+    </datafile>
+    <datafile>
+      <name>feitico_12.png</name>
+      <exists>-1</exists>
+      <size>3587</size>
+      <exportAction>2</exportAction>
+      <exportDir></exportDir>
+      <overwrite>0</overwrite>
+      <freeData>-1</freeData>
+      <removeEnd>0</removeEnd>
+      <store>0</store>
+      <ConfigOptions>
+        <Config name="Default">
+          <CopyToMask>9223372036854775807</CopyToMask>
+        </Config>
+      </ConfigOptions>
+      <filename>feitico_12.png</filename>
+    </datafile>
+    <datafile>
+      <name>feitico_13.png</name>
+      <exists>-1</exists>
+      <size>3370</size>
+      <exportAction>2</exportAction>
+      <exportDir></exportDir>
+      <overwrite>0</overwrite>
+      <freeData>-1</freeData>
+      <removeEnd>0</removeEnd>
+      <store>0</store>
+      <ConfigOptions>
+        <Config name="Default">
+          <CopyToMask>9223372036854775807</CopyToMask>
+        </Config>
+      </ConfigOptions>
+      <filename>feitico_13.png</filename>
+    </datafile>
+    <datafile>
+      <name>feitico_14.png</name>
+      <exists>-1</exists>
+      <size>3317</size>
+      <exportAction>2</exportAction>
+      <exportDir></exportDir>
+      <overwrite>0</overwrite>
+      <freeData>-1</freeData>
+      <removeEnd>0</removeEnd>
+      <store>0</store>
+      <ConfigOptions>
+        <Config name="Default">
+          <CopyToMask>9223372036854775807</CopyToMask>
+        </Config>
+      </ConfigOptions>
+      <filename>feitico_14.png</filename>
+    </datafile>
+    <datafile>
+      <name>feitico_17.png</name>
+      <exists>-1</exists>
+      <size>3469</size>
+      <exportAction>2</exportAction>
+      <exportDir></exportDir>
+      <overwrite>0</overwrite>
+      <freeData>-1</freeData>
+      <removeEnd>0</removeEnd>
+      <store>0</store>
+      <ConfigOptions>
+        <Config name="Default">
+          <CopyToMask>9223372036854775807</CopyToMask>
+        </Config>
+      </ConfigOptions>
+      <filename>feitico_17.png</filename>
+    </datafile>
+    <datafile>
+      <name>feitico_21.png</name>
+      <exists>-1</exists>
+      <size>3408</size>
+      <exportAction>2</exportAction>
+      <exportDir></exportDir>
+      <overwrite>0</overwrite>
+      <freeData>-1</freeData>
+      <removeEnd>0</removeEnd>
+      <store>0</store>
+      <ConfigOptions>
+        <Config name="Default">
+          <CopyToMask>9223372036854775807</CopyToMask>
+        </Config>
+      </ConfigOptions>
+      <filename>feitico_21.png</filename>
+    </datafile>
+    <datafile>
+      <name>feitico_32.png</name>
+      <exists>-1</exists>
+      <size>4866</size>
+      <exportAction>2</exportAction>
+      <exportDir></exportDir>
+      <overwrite>0</overwrite>
+      <freeData>-1</freeData>
+      <removeEnd>0</removeEnd>
+      <store>0</store>
+      <ConfigOptions>
+        <Config name="Default">
+          <CopyToMask>9223372036854775807</CopyToMask>
+        </Config>
+      </ConfigOptions>
+      <filename>feitico_32.png</filename>
+    </datafile>
   </datafiles>
   <NewExtensions/>
   <sounds name="sound"/>
@@ -5294,6 +5532,7 @@
     <object>objects\regular</object>
     <object>objects\help_comps</object>
     <object>objects\current_game</object>
+    <object>objects\drawner_ativa</object>
   </objects>
   <rooms name="rooms">
     <room>rooms\room3</room>
