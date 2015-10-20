@@ -2,7 +2,7 @@
 <room>
   <caption></caption>
   <width>640</width>
-  <height>960</height>
+  <height>1024</height>
   <vsnap>32</vsnap>
   <hsnap>32</hsnap>
   <isometric>0</isometric>
@@ -53,6 +53,7 @@
   <instances>
     <instance objName="voltar_ativa_pp" x="0" y="416" name="inst_12E8887D" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="current_game" x="0" y="0" name="inst_EE2BFA5C" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
+    <instance objName="help_comps" x="530" y="50" name="inst_0916A418" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
   </instances>
   <tiles/>
   <PhysicsWorld>0</PhysicsWorld>

@@ -26,6 +26,7 @@
           <argument>
             <kind>1</kind>
             <string>text=''
+colour=c_yellow
 </string>
           </argument>
         </arguments>
@@ -48,8 +49,10 @@
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>draw_set_font(font4)
-draw_set_colour(c_yellow)
+            <string>draw_set_font(font5)
+draw_set_colour(colour)
+draw_set_halign(fa_left)
+draw_set_valign(fa_top)
 draw_text(x,y,text)
 </string>
           </argument>

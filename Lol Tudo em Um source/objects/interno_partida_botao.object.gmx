@@ -25,7 +25,9 @@
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>new_3.text = new_2.text
+            <string>if global.texto!='' and global.pais!=''
+{
+new_3.text = new_2.text
 new_3.paiss = new_2.paiss
 new_2.text = new_1.text
 new_2.paiss = new_1.paiss
@@ -41,6 +43,11 @@ ini_write_string(room_get_name(room),"new_1.paiss",new_1.paiss)
 ini_close();
 
 room_goto(partida_ativa_interno)
+}
+else
+{
+show_message('You have not entered the name or did not choose the region.')
+}
 </string>
           </argument>
         </arguments>
@@ -63,7 +70,14 @@ room_goto(partida_ativa_interno)
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>room_goto(partida_ativa_interno)
+            <string>if global.texto!='' and global.pais!=''
+{
+room_goto(partida_ativa_interno)
+}
+else
+{
+show_message('You have not entered the name or did not choose the region.')
+}
 </string>
           </argument>
         </arguments>

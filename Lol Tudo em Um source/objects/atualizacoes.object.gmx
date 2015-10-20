@@ -26,7 +26,7 @@
           <argument>
             <kind>1</kind>
             <string>status=0
-file_download=http_get_file("http://www.lolzinho.com.br/","upd.html")
+get=http_get("http://www.lolzinho.com.br/")
 link1=""
 noticia1=""
 
@@ -67,16 +67,12 @@ text=""
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>if ds_map_find_value(async_load, "id") == file_download
+            <string>if ds_map_find_value(async_load, "id") == get
 {
-if ds_map_find_value(async_load, "status") = 0
+if ds_map_find_value(async_load, "status") == 0
 {
-for(file=file_text_open_read("upd.html");file_text_eof(file)=false;file_text_readln(file))
-{
-text+=file_text_read_string(file)
-text=string_replace_all(text,'"',"¨")
-}
-file_text_close(file);
+text=ds_map_find_value(async_load, "result");
+text=string_replace_all(text,'"','¨')
 
 
 link1=string_get(text,"&lt;a class=¨leiamais-post-home¨ href=¨","¨&gt;leia mais »&lt;/a&gt;")
