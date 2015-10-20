@@ -55,6 +55,8 @@ jogador9_exists=0
 jogador10_exists=0
 jogador11_exists=0
 jogador12_exists=0
+gameQueueConfigId=''
+mapid=''
 </string>
           </argument>
         </arguments>
@@ -143,10 +145,13 @@ if string_pos('HTTP ERROR ',text)
 show_message('The name does not exist or connection error.')
 room_goto(partida_ativa)
 }
+else
+{
 /// Pegando id do invocador:
 global.jogador_id=string_pick(text,'"id":',',')
 /// Pegando agora as informações de partida ativa:
 get2=http_get('https://'+string_lower(global.pais)+'.api.pvp.net/observer-mode/rest/consumer/getSpectatorGameInfo/'+server+'/'+global.jogador_id+'?api_key='+global.api)
+}
 }
 }
 
@@ -164,8 +169,144 @@ if string_pos('HTTP Status ',text)
 show_message('Possible errors may have occurred:#1- The player is not in a match;#2- The player is in a match that can not be seen in spectator mode;')
 room_goto(partida_ativa)
 }
-global.gameQueueConfigId=string_pick(text,'"gameQueueConfigId":',',')
-global.mapid=string_pick(text,'"mapId":',',')
+gameQueueConfigId=string_pick(text,'"gameQueueConfigId":',',')
+encryptionKey=string_pick(text,'"encryptionKey":"','"')
+gameId=string_pick(text,'"gameId":',',')
+instance_activate_object(record_match_buton)
+switch real(gameQueueConfigId)
+{
+case 0: gameQueueConfigId = 'Custom game'
+break;
+
+case 8: gameQueueConfigId = 'Normal 3v3 game'
+break;
+
+case 2: gameQueueConfigId = 'Normal 5v5 Blind Pick game'
+break;
+
+case 14: gameQueueConfigId = 'Normal 5v5 Draft Pick game'
+break;
+
+case 4: gameQueueConfigId = 'Ranked Solo 5v5 game'
+break;
+
+case 6: gameQueueConfigId = 'Ranked Premade 5v5 game'
+break;
+
+case 9: gameQueueConfigId = 'Ranked Premade 3v3 game'
+break;
+
+case 41: gameQueueConfigId = 'Ranked Team 3v3 game'
+break;
+
+case 42: gameQueueConfigId = 'Ranked Team 5v5 game'
+break;
+
+case 16: gameQueueConfigId = 'Dominion 5v5 Blind Pick game'
+break;
+
+case 17: gameQueueConfigId = 'Dominion 5v5 Draft Pick game'
+break;
+
+case 7: gameQueueConfigId = "Historical Summoner's Rift Coop vs AI game"
+break;
+
+case 25: gameQueueConfigId = "Dominion Coop vs AI game"
+break;
+
+case 31: gameQueueConfigId = "Summoner's Rift Coop vs AI Intro Bot game"
+break;
+
+case 32: gameQueueConfigId = "Summoner's Rift Coop vs AI Beginner Bot game"
+break;
+
+case 33: gameQueueConfigId = "Historical Summoner's Rift Coop vs AI Intermediate Bot game"
+break;
+
+case 52: gameQueueConfigId = "Twisted Treeline Coop vs AI game"
+break;
+
+case 61: gameQueueConfigId = "Team Builder game"
+break;
+
+case 65: gameQueueConfigId = "ARAM game"
+break;
+
+case 70: gameQueueConfigId = "One for All game"
+break;
+
+case 72: gameQueueConfigId = "Snowdown Showdown 1v1 game"
+break;
+
+case 73: gameQueueConfigId = "Snowdown Showdown 2v2 game"
+break;
+
+case 75: gameQueueConfigId = "Summoner's Rift 6x6 Hexakill game"
+break;
+
+case 76: gameQueueConfigId = "Ultra Rapid Fire game"
+break;
+
+case 83: gameQueueConfigId = "Ultra Rapid Fire games played against AI game"
+break;
+
+case 91: gameQueueConfigId = "Doom Bots Rank 1 game"
+break;
+
+case 92: gameQueueConfigId = "Doom Bots Rank 2 game"
+break;
+
+case 93: gameQueueConfigId = "Doom Bots Rank 5 game"
+break;
+
+case 96: gameQueueConfigId = "Ascension game"
+break;
+
+case 98: gameQueueConfigId = "Twisted Treeline 6x6 Hexakill game"
+break;
+
+case 100: gameQueueConfigId = "Butcher's Bridge game"
+break;
+
+case 300: gameQueueConfigId = "King Poro game"
+break;
+
+case 310: gameQueueConfigId = "Nemesis game"
+break;
+
+case 313: gameQueueConfigId = "Black Market Brawlers game"
+break;
+}
+mapid=string_pick(text,'"mapId":',',')
+switch real(mapid)
+{
+case 1: mapid="Summoner's Rift" map_sprite.sprite_index=osr_mini
+break;
+
+case 2: mapid="Summoner's Rift" map_sprite.sprite_index=osr_mini
+break;
+
+case 3: mapid="The Proving Grounds" map_sprite.sprite_index=ha_mini
+break;
+
+case 4: mapid="Twisted Treeline" map_sprite.sprite_index=ctw_mini
+break;
+
+case 8: mapid="The Crystal Scar" map_sprite.sprite_index=cr_mini
+break;
+
+case 10: mapid="Twisted Treeline" map_sprite.sprite_index=ctw_mini
+break;
+
+case 11: mapid="Summoner's Rift" map_sprite.sprite_index=csr_mini
+break;
+
+case 12: mapid="Howling Abyss" map_sprite.sprite_index=ha_mini
+break;
+
+case 14: mapid="Butcher's Bridge" map_sprite.sprite_index=ha_mini
+break;
+}
 /// Pegando os banidos:
 textt=string_delete(text,1,string_pos('"bannedChampions":',text))
 /// Pegando banido1:
@@ -677,7 +818,9 @@ ds_list_add(jogador1,string_pick(text,' wins="','"')) ///wins
 ds_list_add(jogador1,string_pick(text,' losses="','"')) ///losses
 
 tile_set_scale(tile_add(background_add(ds_list_find_value(jogador1,6)+'.png',0,1),0,0,192,192,96,0,1),0.333,0.333)
-obj=instance_create(160,32,drawner_ativa) obj.text=ds_list_find_value(jogador1,6) obj.colour=c_white
+obj=instance_create(160,32,drawner_ativa) obj.text=string_replace(ds_list_find_value(jogador1,6),'_',' ') obj.colour=c_white
+obj=instance_create(310,0,drawner_ativa) obj.text='Wins: '+string_replace(ds_list_find_value(jogador1,7),'_',' ') obj.colour=c_lime
+obj=instance_create(310,0+32,drawner_ativa) obj.text='Losses: '+string_replace(ds_list_find_value(jogador1,8),'_',' ') obj.colour=c_red
 }
 }
 
@@ -692,7 +835,9 @@ ds_list_add(jogador2,string_pick(text,' wins="','"')) ///wins
 ds_list_add(jogador2,string_pick(text,' losses="','"')) ///losses
 
 tile_set_scale(tile_add(background_add(ds_list_find_value(jogador2,6)+'.png',0,1),0,0,192,192,96,68,1),0.333,0.333)
-obj=instance_create(160,100,drawner_ativa) obj.text=ds_list_find_value(jogador2,6) obj.colour=c_white
+obj=instance_create(160,100,drawner_ativa) obj.text=string_replace(ds_list_find_value(jogador2,6),'_',' ') obj.colour=c_white
+obj=instance_create(310,68,drawner_ativa) obj.text='Wins: '+string_replace(ds_list_find_value(jogador2,7),'_',' ') obj.colour=c_lime
+obj=instance_create(310,68+32,drawner_ativa) obj.text='Losses: '+string_replace(ds_list_find_value(jogador2,8),'_',' ') obj.colour=c_red
 }
 }
 
@@ -707,6 +852,9 @@ ds_list_add(jogador3,string_pick(text,' wins="','"')) ///wins
 ds_list_add(jogador3,string_pick(text,' losses="','"')) ///losses
 
 tile_set_scale(tile_add(background_add(ds_list_find_value(jogador3,6)+'.png',0,1),0,0,192,192,96,136,1),0.333,0.333)
+obj=instance_create(160,168,drawner_ativa) obj.text=string_replace(ds_list_find_value(jogador3,6),'_',' ') obj.colour=c_white
+obj=instance_create(310,136,drawner_ativa) obj.text='Wins: '+string_replace(ds_list_find_value(jogador3,7),'_',' ') obj.colour=c_lime
+obj=instance_create(310,136+32,drawner_ativa) obj.text='Losses: '+string_replace(ds_list_find_value(jogador3,8),'_',' ') obj.colour=c_red
 }
 }
 
@@ -721,6 +869,9 @@ ds_list_add(jogador4,string_pick(text,' wins="','"')) ///wins
 ds_list_add(jogador4,string_pick(text,' losses="','"')) ///losses
 
 tile_set_scale(tile_add(background_add(ds_list_find_value(jogador4,6)+'.png',0,1),0,0,192,192,96,204,1),0.333,0.333)
+obj=instance_create(160,236,drawner_ativa) obj.text=string_replace(ds_list_find_value(jogador4,6),'_',' ') obj.colour=c_white
+obj=instance_create(310,204,drawner_ativa) obj.text='Wins: '+string_replace(ds_list_find_value(jogador4,7),'_',' ') obj.colour=c_lime
+obj=instance_create(310,204+32,drawner_ativa) obj.text='Losses: '+string_replace(ds_list_find_value(jogador4,8),'_',' ') obj.colour=c_red
 }
 }
 
@@ -735,6 +886,9 @@ ds_list_add(jogador5,string_pick(text,' wins="','"')) ///wins
 ds_list_add(jogador5,string_pick(text,' losses="','"')) ///losses
 
 tile_set_scale(tile_add(background_add(ds_list_find_value(jogador5,6)+'.png',0,1),0,0,192,192,96,272,1),0.333,0.333)
+obj=instance_create(160,304,drawner_ativa) obj.text=string_replace(ds_list_find_value(jogador5,6),'_',' ') obj.colour=c_white
+obj=instance_create(310,272,drawner_ativa) obj.text='Wins: '+string_replace(ds_list_find_value(jogador5,7),'_',' ') obj.colour=c_lime
+obj=instance_create(310,272+32,drawner_ativa) obj.text='Losses: '+string_replace(ds_list_find_value(jogador5,8),'_',' ') obj.colour=c_red
 }
 }
 
@@ -749,9 +903,11 @@ ds_list_add(jogador6,string_pick(text,' wins="','"')) ///wins
 ds_list_add(jogador6,string_pick(text,' losses="','"')) ///losses
 
 tile_set_scale(tile_add(background_add(ds_list_find_value(jogador6,6)+'.png',0,1),0,0,192,192,96,340,1),0.333,0.333)
+obj=instance_create(160,372,drawner_ativa) obj.text=string_replace(ds_list_find_value(jogador6,6),'_',' ') obj.colour=c_white
+obj=instance_create(310,340,drawner_ativa) obj.text='Wins: '+string_replace(ds_list_find_value(jogador6,7),'_',' ') obj.colour=c_lime
+obj=instance_create(310,340+32,drawner_ativa) obj.text='Losses: '+string_replace(ds_list_find_value(jogador6,8),'_',' ') obj.colour=c_red
 }
 }
-
 ///Pegando elo jogador7
 if ds_map_find_value(async_load, "id") == gett7
 {
@@ -763,6 +919,9 @@ ds_list_add(jogador7,string_pick(text,' wins="','"')) ///wins
 ds_list_add(jogador7,string_pick(text,' losses="','"')) ///losses
 
 tile_set_scale(tile_add(background_add(ds_list_find_value(jogador7,6)+'.png',0,1),0,0,192,192,96,538,1),0.333,0.333)
+obj=instance_create(160,570,drawner_ativa) obj.text=string_replace(ds_list_find_value(jogador7,6),'_',' ') obj.colour=c_white
+obj=instance_create(310,538,drawner_ativa) obj.text='Wins: '+string_replace(ds_list_find_value(jogador7,7),'_',' ') obj.colour=c_lime
+obj=instance_create(310,538+32,drawner_ativa) obj.text='Losses: '+string_replace(ds_list_find_value(jogador7,8),'_',' ') obj.colour=c_red
 }
 }
 
@@ -777,6 +936,9 @@ ds_list_add(jogador8,string_pick(text,' wins="','"')) ///wins
 ds_list_add(jogador8,string_pick(text,' losses="','"')) ///losses
 
 tile_set_scale(tile_add(background_add(ds_list_find_value(jogador8,6)+'.png',0,1),0,0,192,192,96,606,1),0.333,0.333)
+obj=instance_create(160,638,drawner_ativa) obj.text=string_replace(ds_list_find_value(jogador8,6),'_',' ') obj.colour=c_white
+obj=instance_create(310,606,drawner_ativa) obj.text='Wins: '+string_replace(ds_list_find_value(jogador8,7),'_',' ') obj.colour=c_lime
+obj=instance_create(310,606+32,drawner_ativa) obj.text='Losses: '+string_replace(ds_list_find_value(jogador8,8),'_',' ') obj.colour=c_red
 }
 }
 
@@ -791,6 +953,9 @@ ds_list_add(jogador9,string_pick(text,' wins="','"')) ///wins
 ds_list_add(jogador9,string_pick(text,' losses="','"')) ///losses
 
 tile_set_scale(tile_add(background_add(ds_list_find_value(jogador9,6)+'.png',0,1),0,0,192,192,96,674,1),0.333,0.333)
+obj=instance_create(160,706,drawner_ativa) obj.text=string_replace(ds_list_find_value(jogador9,6),'_',' ') obj.colour=c_white
+obj=instance_create(310,674,drawner_ativa) obj.text='Wins: '+string_replace(ds_list_find_value(jogador9,7),'_',' ') obj.colour=c_lime
+obj=instance_create(310,674+32,drawner_ativa) obj.text='Losses: '+string_replace(ds_list_find_value(jogador9,8),'_',' ') obj.colour=c_red
 }
 }
 
@@ -805,6 +970,9 @@ ds_list_add(jogador10,string_pick(text,' wins="','"')) ///wins
 ds_list_add(jogador10,string_pick(text,' losses="','"')) ///losses
 
 tile_set_scale(tile_add(background_add(ds_list_find_value(jogador10,6)+'.png',0,1),0,0,192,192,96,748,1),0.333,0.333)
+obj=instance_create(160,774,drawner_ativa) obj.text=string_replace(ds_list_find_value(jogador10,6),'_',' ') obj.colour=c_white
+obj=instance_create(310,742,drawner_ativa) obj.text='Wins: '+string_replace(ds_list_find_value(jogador10,7),'_',' ') obj.colour=c_lime
+obj=instance_create(310,742+32,drawner_ativa) obj.text='Losses: '+string_replace(ds_list_find_value(jogador10,8),'_',' ') obj.colour=c_red
 }
 }
 
@@ -819,6 +987,9 @@ ds_list_add(jogador11,string_pick(text,' wins="','"')) ///wins
 ds_list_add(jogador11,string_pick(text,' losses="','"')) ///losses
 
 tile_set_scale(tile_add(background_add(ds_list_find_value(jogador11,6)+'.png',0,1),0,0,192,192,96,810,1),0.333,0.333)
+obj=instance_create(160,842,drawner_ativa) obj.text=string_replace(ds_list_find_value(jogador11,6),'_',' ') obj.colour=c_white
+obj=instance_create(310,810,drawner_ativa) obj.text='Wins: '+string_replace(ds_list_find_value(jogador11,7),'_',' ') obj.colour=c_lime
+obj=instance_create(310,810+32,drawner_ativa) obj.text='Losses: '+string_replace(ds_list_find_value(jogador11,8),'_',' ') obj.colour=c_red
 }
 }
 
@@ -833,6 +1004,9 @@ ds_list_add(jogador12,string_pick(text,' wins="','"')) ///wins
 ds_list_add(jogador12,string_pick(text,' losses="','"')) ///losses
 
 tile_set_scale(tile_add(background_add(ds_list_find_value(jogador12,6)+'.png',0,1),0,0,192,192,96,878,1),0.333,0.333)
+obj=instance_create(160,910,drawner_ativa) obj.text=string_replace(ds_list_find_value(jogador12,6),'_',' ') obj.colour=c_white
+obj=instance_create(310,878,drawner_ativa) obj.text='Wins: '+string_replace(ds_list_find_value(jogador12,7),'_',' ') obj.colour=c_lime
+obj=instance_create(310,878+32,drawner_ativa) obj.text='Losses: '+string_replace(ds_list_find_value(jogador12,8),'_',' ') obj.colour=c_red
 }
 }
 </string>

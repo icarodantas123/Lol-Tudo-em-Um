@@ -3,8 +3,8 @@
   <caption></caption>
   <width>640</width>
   <height>1024</height>
-  <vsnap>32</vsnap>
-  <hsnap>32</hsnap>
+  <vsnap>4</vsnap>
+  <hsnap>4</hsnap>
   <isometric>0</isometric>
   <speed>30</speed>
   <persistent>0</persistent>
@@ -54,6 +54,11 @@
     <instance objName="voltar_ativa_pp" x="0" y="416" name="inst_12E8887D" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="current_game" x="0" y="0" name="inst_EE2BFA5C" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="help_comps" x="530" y="50" name="inst_0916A418" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
+    <instance objName="drawner_tipe" x="264" y="392" name="inst_DACF1C55" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
+    <instance objName="drawner_map" x="264" y="416" name="inst_80E47194" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
+    <instance objName="map_sprite" x="160" y="392" name="inst_98CFFF8F" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
+    <instance objName="draw_bans" x="0" y="392" name="inst_390C16D5" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
+    <instance objName="record_match_buton" x="500" y="416" name="inst_4C9477B1" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
   </instances>
   <tiles/>
   <PhysicsWorld>0</PhysicsWorld>

@@ -5292,6 +5292,7 @@
     <sprite>sprites\sprite9</sprite>
     <sprite>sprites\mobafirespr</sprite>
     <sprite>sprites\sprite10</sprite>
+    <sprite>sprites\sprite62</sprite>
     <sprite>sprites\setaV</sprite>
     <sprite>sprites\seta</sprite>
     <sprite>sprites\counter</sprite>
@@ -5302,6 +5303,7 @@
     <sprite>sprites\internooo</sprite>
     <sprite>sprites\sprite13</sprite>
     <sprite>sprites\sprite14</sprite>
+    <sprite>sprites\record_match</sprite>
     <sprite>sprites\sprite17</sprite>
     <sprite>sprites\update_disponivel_spr</sprite>
     <sprite>sprites\sprite18</sprite>
@@ -5336,6 +5338,8 @@
     <sprite>sprites\ha_mini</sprite>
     <sprite>sprites\cr_mini</sprite>
     <sprite>sprites\sprite58</sprite>
+    <sprite>sprites\sprite59</sprite>
+    <sprite>sprites\sprite60</sprite>
   </sprites>
   <backgrounds name="background">
     <background>background\lol_tudo_em_um_bqg_normal</background>
@@ -5550,6 +5554,12 @@
     <object>objects\help_comps</object>
     <object>objects\current_game</object>
     <object>objects\drawner_ativa</object>
+    <object>objects\drawner_tipe</object>
+    <object>objects\drawner_map</object>
+    <object>objects\map_sprite</object>
+    <object>objects\helper</object>
+    <object>objects\draw_bans</object>
+    <object>objects\record_match_buton</object>
   </objects>
   <rooms name="rooms">
     <room>rooms\room3</room>
