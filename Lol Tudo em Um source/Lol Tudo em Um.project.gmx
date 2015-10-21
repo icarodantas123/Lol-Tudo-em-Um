@@ -5559,6 +5559,7 @@
     <object>objects\map_sprite</object>
     <object>objects\helper</object>
     <object>objects\draw_bans</object>
+    <object>objects\draw_bans_2</object>
     <object>objects\record_match_buton</object>
   </objects>
   <rooms name="rooms">

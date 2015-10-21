@@ -25,7 +25,7 @@
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>file=http_get_file("http://arquivosparadownload.mygamesonline.org/ci.txt","ci.txt")
+            <string>file=http_get_file("http://arquivosparadownload.mygamesonline.org/ci.txt","ccci.txt")
 
 </string>
           </argument>
@@ -53,6 +53,8 @@
 {
 if ds_map_find_value(async_load, "status") ==0
 {
+file_delete('ci.txt')
+file_rename('ccci.txt','ci.txt')
 instance_destroy();
 }
 }

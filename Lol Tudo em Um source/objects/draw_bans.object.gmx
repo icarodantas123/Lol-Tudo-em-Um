@@ -29,7 +29,7 @@
 draw_set_colour(c_yellow)
 draw_set_halign(fa_left)
 draw_set_valign(fa_top)
-draw_text(x,y,'Bans:')
+draw_text(x,y,'Blue team bans:')
 </string>
           </argument>
         </arguments>
