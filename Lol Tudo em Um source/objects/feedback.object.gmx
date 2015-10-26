@@ -26,7 +26,6 @@
           <argument>
             <kind>1</kind>
             <string>url_open("http://www.formfacil.com/loltudoemum/feedback")
-show_message("Se apareceu alguma mensagem de erro ao clicar aqui, você deve mudar a forma como os arquivos .html são abertos ou colocar navegador padrão google chrome ou firefox.")
 </string>
           </argument>
         </arguments>

@@ -25,7 +25,7 @@
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>global.api="ca98daba-a8c1-4c4f-918e-5eebd5ae61d1"
+            <string>global.api="83dd2ebd-fa9a-4d5d-82d5-15cd849f37b7"
 server='BR1'
 server=pega_server();
 get1=http_get('https://'+string_lower(global.pais)+'.api.pvp.net/api/lol/'+string_lower(global.pais)+'/v1.4/summoner/by-name/'+global.texto+'?api_key='+global.api)

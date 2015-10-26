@@ -48,7 +48,9 @@
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>url_open("https://pagseguro.uol.com.br/checkout/v2/donation.html?currency=BRL&amp;receiverEmail=icarodantas1@hotmail.com")
+            <string>show_message('Inglês:Open two tabs in your browser, one for giving and the other for confirmation.#Português:Abrirá duas abas no seu navegador, uma para doação e a outra para confirmação.')
+url_open("http://www.formfacil.com/loltudoemum/confirmar")
+url_open("https://pagseguro.uol.com.br/checkout/v2/donation.html?currency=BRL&amp;receiverEmail=icarodantas1@hotmail.com")
 </string>
           </argument>
         </arguments>

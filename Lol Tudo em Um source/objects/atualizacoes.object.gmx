@@ -111,6 +111,7 @@ noticia5=string_replace_all(noticia5,"#","")
 text=string_replace(text,"class=¨tit-post-home¨&gt;","")
 
 status=1
+instance_activate_object(leia_mais)
 
 
 

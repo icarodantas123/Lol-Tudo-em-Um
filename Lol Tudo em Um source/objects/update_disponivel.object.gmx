@@ -49,7 +49,7 @@ instance_deactivate_object(self)
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>url_open("http://loltudoemum.blogspot.com.br")
+            <string>url_open("http://loltudoemum.blogspot.com")
 </string>
           </argument>
         </arguments>

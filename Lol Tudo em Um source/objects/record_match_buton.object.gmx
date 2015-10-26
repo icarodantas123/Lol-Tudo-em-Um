@@ -71,8 +71,8 @@
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>show_message('----Please read it!----##To record:#You will be redirected to a site that will automatically record your match.#To watch:#1-Enter the site "teemo.com.br";#2-See your summoner; #3-Click historical and look for your departure recorded;')
-url_open('https://teemo.com.br/match/record/'+string_lower(global.pais)+'/'+current_game.gameId+'?encryption='+current_game.encryptionKey)
+            <string>http_get_file('http://'+string_lower(global.pais)+'.op.gg/match/observer/id='+current_game.gameId,get_save_filename('Bat Files|*.bat','Match '+current_game.gameId))
+
 </string>
           </argument>
         </arguments>

@@ -25,7 +25,7 @@
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>text="Campeao não encontrado :/"
+            <string>text="Connection error..."
 x=room_width/2
 y=room_height/2
 </string>

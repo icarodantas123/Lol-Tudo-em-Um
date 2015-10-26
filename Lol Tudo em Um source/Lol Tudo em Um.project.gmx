@@ -3,7 +3,7 @@
   <Configs name="configs">
     <Config>Configs\Default</Config>
   </Configs>
-  <datafiles number="481" name="datafiles">
+  <datafiles number="482" name="datafiles">
     <datafile>
       <name>Aatrox.png</name>
       <exists>-1</exists>
@@ -5274,12 +5274,27 @@
       </ConfigOptions>
       <filename>ci.txt</filename>
     </datafile>
+    <datafile>
+      <name>nothing.png</name>
+      <exists>-1</exists>
+      <size>720</size>
+      <exportAction>2</exportAction>
+      <exportDir></exportDir>
+      <overwrite>0</overwrite>
+      <freeData>-1</freeData>
+      <removeEnd>0</removeEnd>
+      <store>0</store>
+      <ConfigOptions>
+        <Config name="Default">
+          <CopyToMask>9223372036854775807</CopyToMask>
+        </Config>
+      </ConfigOptions>
+      <filename>nothing.png</filename>
+    </datafile>
   </datafiles>
   <NewExtensions/>
   <sounds name="sound"/>
   <sprites name="sprites">
-    <sprite>sprites\marqued</sprite>
-    <sprite>sprites\unmarqued</sprite>
     <sprite>sprites\digitar_nome</sprite>
     <sprite>sprites\nome_salvo</sprite>
     <sprite>sprites\teemo</sprite>
@@ -5293,8 +5308,6 @@
     <sprite>sprites\mobafirespr</sprite>
     <sprite>sprites\sprite10</sprite>
     <sprite>sprites\sprite62</sprite>
-    <sprite>sprites\setaV</sprite>
-    <sprite>sprites\seta</sprite>
     <sprite>sprites\counter</sprite>
     <sprite>sprites\comps</sprite>
     <sprite>sprites\noticias</sprite>
@@ -5340,6 +5353,27 @@
     <sprite>sprites\sprite58</sprite>
     <sprite>sprites\sprite59</sprite>
     <sprite>sprites\sprite60</sprite>
+    <sprite>sprites\noiijo</sprite>
+    <sprite>sprites\br_p</sprite>
+    <sprite>sprites\br_np</sprite>
+    <sprite>sprites\eune_p</sprite>
+    <sprite>sprites\eune_np</sprite>
+    <sprite>sprites\euw_p</sprite>
+    <sprite>sprites\euw_np</sprite>
+    <sprite>sprites\kr_p</sprite>
+    <sprite>sprites\kr_np</sprite>
+    <sprite>sprites\lan_p</sprite>
+    <sprite>sprites\lan_np</sprite>
+    <sprite>sprites\las_p</sprite>
+    <sprite>sprites\las_np</sprite>
+    <sprite>sprites\na_p</sprite>
+    <sprite>sprites\na_np</sprite>
+    <sprite>sprites\oce_p</sprite>
+    <sprite>sprites\oce_np</sprite>
+    <sprite>sprites\ru_p</sprite>
+    <sprite>sprites\ru_np</sprite>
+    <sprite>sprites\tr_p</sprite>
+    <sprite>sprites\tr_np</sprite>
   </sprites>
   <backgrounds name="background">
     <background>background\lol_tudo_em_um_bqg_normal</background>
@@ -5557,7 +5591,6 @@
     <object>objects\drawner_tipe</object>
     <object>objects\drawner_map</object>
     <object>objects\map_sprite</object>
-    <object>objects\helper</object>
     <object>objects\draw_bans</object>
     <object>objects\draw_bans_2</object>
     <object>objects\record_match_buton</object>

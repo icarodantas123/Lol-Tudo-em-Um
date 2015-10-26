@@ -69,7 +69,7 @@
     <instance objName="update_disponivel" x="320" y="112" name="inst_49425957" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="comps_goto" x="256" y="280" name="inst_6245A468" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="object183" x="320" y="48" name="inst_F8EA8AB7" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
-    <instance objName="doacao_draw" x="312" y="104" name="inst_BE2C9116" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
+    <instance objName="doacao_draw" x="312" y="88" name="inst_BE2C9116" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
   </instances>
   <tiles/>
   <PhysicsWorld>0</PhysicsWorld>

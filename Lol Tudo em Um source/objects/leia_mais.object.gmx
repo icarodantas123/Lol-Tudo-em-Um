@@ -26,6 +26,7 @@
           <argument>
             <kind>1</kind>
             <string>link=""
+instance_deactivate_object(leia_mais)
 </string>
           </argument>
         </arguments>
