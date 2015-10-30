@@ -25,24 +25,26 @@
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>global.api="83dd2ebd-fa9a-4d5d-82d5-15cd849f37b7"
+            <string>ini_open('aviso.ini')
+if ini_read_real('aviso','result',0) = 1
+{
+if show_question('Inglês:Attention! Use this module moderately or it will be banned for a few hours. Use "no" to not see again.#Português:Atenção! Use este módulo com moderação ou será banido dele por algumas horas. Use "no" para não ver novamente.') = 1
+{
+ini_write_real('aviso','result',1)
+}
+else
+{
+ini_write_real('aviso','result',0)
+}
+}
+ini_close()
+global.api="83dd2ebd-fa9a-4d5d-82d5-15cd849f37b7"
 server='BR1'
 server=pega_server();
 get1=http_get('https://'+string_lower(global.pais)+'.api.pvp.net/api/lol/'+string_lower(global.pais)+'/v1.4/summoner/by-name/'+global.texto+'?api_key='+global.api)
 get2=noone
 get3=noone
-gett1=noone
-gett2=noone
-gett3=noone
-gett4=noone
-gett5=noone
-gett6=noone
-gett7=noone
-gett8=noone
-gett9=noone
-gett10=noone
-gett11=noone
-gett12=noone
+get4=noone
 jogador1_exists=0
 jogador2_exists=0
 jogador3_exists=0
@@ -89,6 +91,58 @@ view_yview[0]+=10
       </action>
     </event>
     <event eventtype="5" enumb="38">
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>if view_yview[0]&gt;0
+{
+view_yview[0]-=10
+}
+</string>
+          </argument>
+        </arguments>
+      </action>
+    </event>
+    <event eventtype="6" enumb="61">
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>if view_yview[0]&lt;670-480
+{
+view_yview[0]+=10
+}
+</string>
+          </argument>
+        </arguments>
+      </action>
+    </event>
+    <event eventtype="6" enumb="60">
       <action>
         <libid>1</libid>
         <id>603</id>
@@ -412,7 +466,7 @@ tile_set_scale(tile_add(background_add(ban6+'.jpg',0,1),0,0,120,120,544+x200*32,
 textt=string_replace(textt,'"teamId":','')
 }
 /// Vendo se existe o jogador 1:
-if string_pick(text,'"teamId":',',') = '100'
+if string_pick(text,'{"teamId":',',') = '100'
 {
 text=string_replace(text,'"teamId":100,','')
 jogador1_exists=1
@@ -436,7 +490,7 @@ tile_set_scale(tile_add(background_add('feitico_'+ds_list_find_value(jogador1,4)
 }
 
 /// Vendo se existe o jogador 2:
-if string_pick(text,'"teamId":',',') = '100'
+if string_pick(text,'{"teamId":',',') = '100'
 {
 text=string_replace(text,'"teamId":100,','')
 jogador2_exists=1
@@ -459,7 +513,7 @@ tile_set_scale(tile_add(background_add('feitico_'+ds_list_find_value(jogador2,4)
 }
 
 /// Vendo se existe o jogador 3:
-if string_pick(text,'"teamId":',',') = '100'
+if string_pick(text,'{"teamId":',',') = '100'
 {
 text=string_replace(text,'"teamId":100,','')
 jogador3_exists=1
@@ -482,7 +536,7 @@ tile_set_scale(tile_add(background_add('feitico_'+ds_list_find_value(jogador3,4)
 }
 
 /// Vendo se existe o jogador 4:
-if string_pick(text,'"teamId":',',') = '100'
+if string_pick(text,'{"teamId":',',') = '100'
 {
 text=string_replace(text,'"teamId":100,','')
 jogador4_exists=1
@@ -505,7 +559,7 @@ tile_set_scale(tile_add(background_add('feitico_'+ds_list_find_value(jogador4,4)
 }
 
 /// Vendo se existe o jogador 5:
-if string_pick(text,'"teamId":',',') = '100'
+if string_pick(text,'{"teamId":',',') = '100'
 {
 text=string_replace(text,'"teamId":100,','')
 jogador5_exists=1
@@ -528,7 +582,7 @@ tile_set_scale(tile_add(background_add('feitico_'+ds_list_find_value(jogador5,4)
 }
 
 /// Vendo se existe o jogador 6:
-if string_pick(text,'"teamId":',',') = '100'
+if string_pick(text,'{"teamId":',',') = '100'
 {
 text=string_replace(text,'"teamId":100,','')
 jogador6_exists=1
@@ -551,7 +605,7 @@ tile_set_scale(tile_add(background_add('feitico_'+ds_list_find_value(jogador6,4)
 }
 
 /// Vendo se existe o jogador 7:
-if string_pick(text,'"teamId":',',') = '200'
+if string_pick(text,'{"teamId":',',') = '200'
 {
 text=string_replace(text,'"teamId":200,','')
 jogador7_exists=1
@@ -574,7 +628,7 @@ tile_set_scale(tile_add(background_add('feitico_'+ds_list_find_value(jogador7,4)
 }
 
 /// Vendo se existe o jogador 8:
-if string_pick(text,'"teamId":',',') = '200'
+if string_pick(text,'{"teamId":',',') = '200'
 {
 text=string_replace(text,'"teamId":200,','')
 jogador8_exists=1
@@ -597,7 +651,7 @@ tile_set_scale(tile_add(background_add('feitico_'+ds_list_find_value(jogador8,4)
 }
 
 /// Vendo se existe o jogador 9:
-if string_pick(text,'"teamId":',',') = '200'
+if string_pick(text,'{"teamId":',',') = '200'
 {
 text=string_replace(text,'"teamId":200,','')
 jogador9_exists=1
@@ -620,7 +674,7 @@ tile_set_scale(tile_add(background_add('feitico_'+ds_list_find_value(jogador9,4)
 }
 
 /// Vendo se existe o jogador 10:
-if string_pick(text,'"teamId":',',') = '200'
+if string_pick(text,'{"teamId":',',') = '200'
 {
 text=string_replace(text,'"teamId":200,','')
 jogador10_exists=1
@@ -643,7 +697,7 @@ tile_set_scale(tile_add(background_add('feitico_'+ds_list_find_value(jogador10,4
 }
 
 /// Vendo se existe o jogador 11:
-if string_pick(text,'"teamId":',',') = '200'
+if string_pick(text,'{"teamId":',',') = '200'
 {
 text=string_replace(text,'"teamId":200,','')
 jogador11_exists=1
@@ -666,7 +720,7 @@ tile_set_scale(tile_add(background_add('feitico_'+ds_list_find_value(jogador11,4
 }
 
 /// Vendo se existe o jogador 12:
-if string_pick(text,'"teamId":',',') = '200'
+if string_pick(text,'{"teamId":',',') = '200'
 {
 text=string_replace(text,'"teamId":200,','')
 jogador12_exists=1
@@ -681,13 +735,14 @@ text=string_replace(text,'"summonerName":"','')
 text=string_replace(text,'"championId":','')
 text=string_replace(text,'"spell1Id":','')
 text=string_replace(text,'"spell2Id":','')
-ids+=ds_list_find_value(jogador12,0)+','
+ids+=ds_list_find_value(jogador12,0)
 
 tile_set_scale(tile_add(background_add(ds_list_find_value(jogador12,2)+'.jpg',0,1),0,0,120,120,320,340,1),0.533,0.533)
 tile_set_scale(tile_add(background_add('feitico_'+ds_list_find_value(jogador12,3)+'.png',0,1),0,0,64,64,320+64,340,1),0.5,0.5)
 tile_set_scale(tile_add(background_add('feitico_'+ds_list_find_value(jogador12,4)+'.png',0,1),0,0,64,64,320+64,340+32,1),0.5,0.5)
 }
 get3=http_get('https://'+string_lower(global.pais)+'.api.pvp.net/api/lol/'+string_lower(global.pais)+'/v1.4/summoner/'+ids+'?api_key='+global.api)
+get4=http_get('https://'+string_lower(global.pais)+'.api.pvp.net/api/lol/'+string_lower(global.pais)+'/v2.5/league/by-summoner/'+ids+'/entry?api_key='+global.api)
 }
 }
 
@@ -701,7 +756,6 @@ if jogador1_exists=1
 {
 ds_list_add(jogador1,string_pick(text,'"summonerLevel":',',')) ///level
 text=string_replace(text,'"summonerLevel":','')
-gett1=http_get('https://teemo.com.br/player/resume/'+string_lower(global.pais)+'/'+ds_list_find_value(jogador1,1))
 obj=instance_create(160,0,drawner_ativa) obj.text=ds_list_find_value(jogador1,1)+'('+ds_list_find_value(jogador1,5)+')'
 }
 
@@ -710,7 +764,6 @@ if jogador2_exists=1
 {
 ds_list_add(jogador2,string_pick(text,'"summonerLevel":',',')) ///level
 text=string_replace(text,'"summonerLevel":','')
-gett2=http_get('https://teemo.com.br/player/resume/'+string_lower(global.pais)+'/'+ds_list_find_value(jogador2,1))
 obj=instance_create(160,68,drawner_ativa) obj.text=ds_list_find_value(jogador2,1)+'('+ds_list_find_value(jogador2,5)+')'
 }
 
@@ -719,7 +772,6 @@ if jogador3_exists=1
 {
 ds_list_add(jogador3,string_pick(text,'"summonerLevel":',',')) ///level
 text=string_replace(text,'"summonerLevel":','')
-gett3=http_get('https://teemo.com.br/player/resume/'+string_lower(global.pais)+'/'+ds_list_find_value(jogador3,1))
 obj=instance_create(160,136,drawner_ativa) obj.text=ds_list_find_value(jogador3,1)+'('+ds_list_find_value(jogador3,5)+')'
 }
 
@@ -728,7 +780,6 @@ if jogador4_exists=1
 {
 ds_list_add(jogador4,string_pick(text,'"summonerLevel":',',')) ///level
 text=string_replace(text,'"summonerLevel":','')
-gett4=http_get('https://teemo.com.br/player/resume/'+string_lower(global.pais)+'/'+ds_list_find_value(jogador4,1))
 obj=instance_create(160,204,drawner_ativa) obj.text=ds_list_find_value(jogador4,1)+'('+ds_list_find_value(jogador4,5)+')'
 }
 
@@ -737,7 +788,6 @@ if jogador5_exists=1
 {
 ds_list_add(jogador5,string_pick(text,'"summonerLevel":',',')) ///level
 text=string_replace(text,'"summonerLevel":','')
-gett5=http_get('https://teemo.com.br/player/resume/'+string_lower(global.pais)+'/'+ds_list_find_value(jogador5,1))
 obj=instance_create(160,272,drawner_ativa) obj.text=ds_list_find_value(jogador5,1)+'('+ds_list_find_value(jogador5,5)+')'
 }
 
@@ -746,7 +796,6 @@ if jogador6_exists=1
 {
 ds_list_add(jogador6,string_pick(text,'"summonerLevel":',',')) ///level
 text=string_replace(text,'"summonerLevel":','')
-gett6=http_get('https://teemo.com.br/player/resume/'+string_lower(global.pais)+'/'+ds_list_find_value(jogador6,1))
 obj=instance_create(160,340,drawner_ativa) obj.text=ds_list_find_value(jogador6,1)+'('+ds_list_find_value(jogador6,5)+')'
 }
 
@@ -755,7 +804,6 @@ if jogador7_exists=1
 {
 ds_list_add(jogador7,string_pick(text,'"summonerLevel":',',')) ///level
 text=string_replace(text,'"summonerLevel":','')
-gett7=http_get('https://teemo.com.br/player/resume/'+string_lower(global.pais)+'/'+ds_list_find_value(jogador7,1))
 obj=instance_create(480,0,drawner_ativa) obj.text=ds_list_find_value(jogador7,1)+'('+ds_list_find_value(jogador7,5)+')'
 }
 
@@ -764,7 +812,6 @@ if jogador8_exists=1
 {
 ds_list_add(jogador8,string_pick(text,'"summonerLevel":',',')) ///level
 text=string_replace(text,'"summonerLevel":','')
-gett8=http_get('https://teemo.com.br/player/resume/'+string_lower(global.pais)+'/'+ds_list_find_value(jogador8,1))
 obj=instance_create(480,68,drawner_ativa) obj.text=ds_list_find_value(jogador8,1)+'('+ds_list_find_value(jogador8,5)+')'
 }
 
@@ -773,7 +820,6 @@ if jogador9_exists=1
 {
 ds_list_add(jogador9,string_pick(text,'"summonerLevel":',',')) ///level
 text=string_replace(text,'"summonerLevel":','')
-gett9=http_get('https://teemo.com.br/player/resume/'+string_lower(global.pais)+'/'+ds_list_find_value(jogador9,1))
 obj=instance_create(480,136,drawner_ativa) obj.text=ds_list_find_value(jogador9,1)+'('+ds_list_find_value(jogador9,5)+')'
 }
 
@@ -782,7 +828,6 @@ if jogador10_exists=1
 {
 ds_list_add(jogador10,string_pick(text,'"summonerLevel":',',')) ///level
 text=string_replace(text,'"summonerLevel":','')
-gett10=http_get('https://teemo.com.br/player/resume/'+string_lower(global.pais)+'/'+ds_list_find_value(jogador10,1))
 obj=instance_create(480,204,drawner_ativa) obj.text=ds_list_find_value(jogador10,1)+'('+ds_list_find_value(jogador10,5)+')'
 }
 
@@ -791,7 +836,6 @@ if jogador11_exists=1
 {
 ds_list_add(jogador11,string_pick(text,'"summonerLevel":',',')) ///level
 text=string_replace(text,'"summonerLevel":','')
-gett11=http_get('https://teemo.com.br/player/resume/'+string_lower(global.pais)+'/'+ds_list_find_value(jogador11,1))
 obj=instance_create(480,272,drawner_ativa) obj.text=ds_list_find_value(jogador11,1)+'('+ds_list_find_value(jogador11,5)+')'
 }
 
@@ -800,249 +844,416 @@ if jogador12_exists=1
 {
 ds_list_add(jogador12,string_pick(text,'"summonerLevel":',',')) ///level
 text=string_replace(text,'"summonerLevel":','')
-gett12=http_get('https://teemo.com.br/player/resume/'+string_lower(global.pais)+'/'+ds_list_find_value(jogador12,1))
 obj=instance_create(480,340,drawner_ativa) obj.text=ds_list_find_value(jogador12,1)+'('+ds_list_find_value(jogador12,5)+')'
 }
-
-
 }
 }
+
+if ds_map_find_value(async_load, "id") = get4
+{
+if ds_map_find_value(async_load, "status") == 0
+{
+text = ds_map_find_value(async_load, "result");
+
 ///Pegando elo jogador1
-if ds_map_find_value(async_load, "id") == gett1
-{
-if ds_map_find_value(async_load, "status") == 0
-{
-text = ds_map_find_value(async_load, "result");
-ds_list_add(jogador1,string_pick(text,'&lt;img src="//static.teemo.com.br/lol/ranks/','.')) ///elo
-ds_list_add(jogador1,string_pick(text,' wins="','"')) ///wins
-ds_list_add(jogador1,string_pick(text,' losses="','"')) ///losses
 
-text=string_replace(text,'&lt;/span&gt;&lt;br&gt;','')
-ds_list_add(jogador1,real(string_pick(text,'&lt;/span&gt;&lt;br&gt;',' ')))
-
+if jogador1_exists=1
+{
+for(texttt=text;string_pos(':[{"name":',texttt)!=0;textt=string_get(texttt,':[{"name":','}]}]'))
+{
+textt=string_get(texttt,':[{"name":','}]}]')
+texttt=string_replace(texttt,':[{"name":','')
+texttt=string_replace(texttt,'}]}]','')
+if is_string(string_pick(textt,'"playerOrTeamId":"','"')) =1
+{
+if string_pick(textt,'"playerOrTeamId":"','"') = ds_list_find_value(jogador1,0)
+{
+if string_pick(textt,'"queue":"','"') = 'RANKED_SOLO_5x5'
+{
+ds_list_add(jogador1,string_pick(textt,'"tier":"','"')+'_'+string_pick(textt,'"division":"','"')) ///elo 6
+ds_list_add(jogador1,ds_list_find_value(jogador1,6)+' ('+string_pick(textt,'"leaguePoints":',',')+')') ///pdl 7
+ds_list_add(jogador1,string_pick(textt,'"wins":',',')+'/'+string_pick(textt,'"losses":',','))
+if file_exists(ds_list_find_value(jogador1,6)+'.png')
+{
 tile_set_scale(tile_add(background_add(ds_list_find_value(jogador1,6)+'.png',0,1),0,0,192,192,96,0,1),0.333,0.333)
-obj=instance_create(160,16,drawner_ativa) obj.text=string_replace(ds_list_find_value(jogador1,6),'_',' ')+' -'+string(ds_list_find_value(jogador1,9))+'pdl' obj.colour=c_white
-obj=instance_create(160,32,drawner_ativa) obj.text='Wins: '+string_replace(ds_list_find_value(jogador1,7),'_',' ') obj.colour=c_lime
-obj=instance_create(160,0+48,drawner_ativa) obj.text='Losses: '+string_replace(ds_list_find_value(jogador1,8),'_',' ') obj.colour=c_red
+}
+else
+{
+tile_set_scale(tile_add(background_add('UNRANKED_.png',0,1),0,0,192,192,96,0,1),0.333,0.333)
+}
+obj=instance_create(160,16,drawner_ativa) obj.text=ds_list_find_value(jogador1,7) obj.colour=c_white ///Colocando o elo
+obj=instance_create(160,32,drawner_ativa) obj.text='Wins/Losses: '+ds_list_find_value(jogador1,8) obj.colour=c_white ///Colocando o elo
 }
 }
-
+}
+}
+}
 ///Pegando elo jogador2
-if ds_map_find_value(async_load, "id") == gett2
-{
-if ds_map_find_value(async_load, "status") == 0
-{
-text = ds_map_find_value(async_load, "result");
-ds_list_add(jogador2,string_pick(text,'&lt;img src="//static.teemo.com.br/lol/ranks/','.')) ///elo
-ds_list_add(jogador2,string_pick(text,' wins="','"')) ///wins
-ds_list_add(jogador2,string_pick(text,' losses="','"')) ///losses
 
-text=string_replace(text,'&lt;/span&gt;&lt;br&gt;','')
-ds_list_add(jogador2,real(string_pick(text,'&lt;/span&gt;&lt;br&gt;',' ')))
-
-tile_set_scale(tile_add(background_add(ds_list_find_value(jogador2,6)+'.png',0,1),0,0,192,192,96,68,1),0.333,0.333)
-obj=instance_create(160,68+16,drawner_ativa) obj.text=string_replace(ds_list_find_value(jogador2,6),'_',' ')+' -'+string(ds_list_find_value(jogador2,9))+'pdl' obj.colour=c_white
-obj=instance_create(160,68+32,drawner_ativa) obj.text='Wins: '+string_replace(ds_list_find_value(jogador2,7),'_',' ') obj.colour=c_lime
-obj=instance_create(160,68+48,drawner_ativa) obj.text='Losses: '+string_replace(ds_list_find_value(jogador2,8),'_',' ') obj.colour=c_red
+if jogador2_exists=1
+{
+for(texttt=text;string_pos(':[{"name":',texttt)!=0;textt=string_get(texttt,':[{"name":','}]}]'))
+{
+textt=string_get(texttt,':[{"name":','}]}]')
+texttt=string_replace(texttt,':[{"name":','')
+texttt=string_replace(texttt,'}]}]','')
+if is_string(string_pick(textt,'"playerOrTeamId":"','"')) = 1
+{
+if string_pick(textt,'"playerOrTeamId":"','"') = ds_list_find_value(jogador2,0)
+{
+if string_pick(textt,'"queue":"','"') = 'RANKED_SOLO_5x5'
+{
+ds_list_add(jogador2,string_pick(textt,'"tier":"','"')+'_'+string_pick(textt,'"division":"','"')) ///elo 6
+ds_list_add(jogador2,ds_list_find_value(jogador2,6)+' ('+string_pick(textt,'"leaguePoints":',',')+')') ///pdl 7
+ds_list_add(jogador2,string_pick(textt,'"wins":',',')+'/'+string_pick(textt,'"losses":',','))
+if file_exists(ds_list_find_value(jogador2,6)+'.png')
+{
+tile_set_scale(tile_add(background_add(ds_list_find_value(jogador2,6)+'.png',0,1),0,0,192,192,96,(2-1)*68,1),0.333,0.333)
+}
+else
+{
+tile_set_scale(tile_add(background_add('UNRANKED_.png',0,1),0,0,192,192,96,(2-1)*68,1),0.333,0.333)
+}
+obj=instance_create(160,(2-1)*68+16,drawner_ativa) obj.text=ds_list_find_value(jogador2,7) obj.colour=c_white ///Colocando o elo
+obj=instance_create(160,(2-1)*68+32,drawner_ativa) obj.text='Wins/Losses: '+ds_list_find_value(jogador2,8) obj.colour=c_white ///Colocando o elo
 }
 }
-
+}
+}
+}
 ///Pegando elo jogador3
-if ds_map_find_value(async_load, "id") == gett3
-{
-if ds_map_find_value(async_load, "status") == 0
-{
-text = ds_map_find_value(async_load, "result");
-ds_list_add(jogador3,string_pick(text,'&lt;img src="//static.teemo.com.br/lol/ranks/','.')) ///elo
-ds_list_add(jogador3,string_pick(text,' wins="','"')) ///wins
-ds_list_add(jogador3,string_pick(text,' losses="','"')) ///losses
 
-text=string_replace(text,'&lt;/span&gt;&lt;br&gt;','')
-ds_list_add(jogador3,real(string_pick(text,'&lt;/span&gt;&lt;br&gt;',' ')))
-
-tile_set_scale(tile_add(background_add(ds_list_find_value(jogador3,6)+'.png',0,1),0,0,192,192,96,136,1),0.333,0.333)
-obj=instance_create(160,68*2+16,drawner_ativa) obj.text=string_replace(ds_list_find_value(jogador3,6),'_',' ')+' -'+string(ds_list_find_value(jogador3,9))+'pdl' obj.colour=c_white
-obj=instance_create(160,68*2+32,drawner_ativa) obj.text='Wins: '+string_replace(ds_list_find_value(jogador3,7),'_',' ') obj.colour=c_lime
-obj=instance_create(160,68*2+48,drawner_ativa) obj.text='Losses: '+string_replace(ds_list_find_value(jogador3,8),'_',' ') obj.colour=c_red
+if jogador3_exists=1
+{
+for(texttt=text;string_pos(':[{"name":',texttt)!=0;textt=string_get(texttt,':[{"name":','}]}]'))
+{
+textt=string_get(texttt,':[{"name":','}]}]')
+texttt=string_replace(texttt,':[{"name":','')
+texttt=string_replace(texttt,'}]}]','')
+if is_string(string_pick(textt,'"playerOrTeamId":"','"')) = 1
+{
+if string_pick(textt,'"playerOrTeamId":"','"') = ds_list_find_value(jogador3,0)
+{
+if string_pick(textt,'"queue":"','"') = 'RANKED_SOLO_5x5'
+{
+ds_list_add(jogador3,string_pick(textt,'"tier":"','"')+'_'+string_pick(textt,'"division":"','"')) ///elo 6
+ds_list_add(jogador3,ds_list_find_value(jogador3,6)+' ('+string_pick(textt,'"leaguePoints":',',')+')') ///pdl 7
+ds_list_add(jogador3,string_pick(textt,'"wins":',',')+'/'+string_pick(textt,'"losses":',','))
+if file_exists(ds_list_find_value(jogador3,6)+'.png')
+{
+tile_set_scale(tile_add(background_add(ds_list_find_value(jogador3,6)+'.png',0,1),0,0,192,192,96,(3-1)*68,1),0.333,0.333)
+}
+else
+{
+tile_set_scale(tile_add(background_add('UNRANKED_.png',0,1),0,0,192,192,96,(3-1)*68,1),0.333,0.333)
+}
+obj=instance_create(160,(3-1)*68+16,drawner_ativa) obj.text=ds_list_find_value(jogador3,7) obj.colour=c_white ///Colocando o elo
+obj=instance_create(160,(3-1)*68+32,drawner_ativa) obj.text='Wins/Losses: '+ds_list_find_value(jogador3,8) obj.colour=c_white ///Colocando o elo
 }
 }
-
+}
+}
+}
 ///Pegando elo jogador4
-if ds_map_find_value(async_load, "id") == gett4
-{
-if ds_map_find_value(async_load, "status") == 0
-{
-text = ds_map_find_value(async_load, "result");
-ds_list_add(jogador4,string_pick(text,'&lt;img src="//static.teemo.com.br/lol/ranks/','.')) ///elo
-ds_list_add(jogador4,string_pick(text,' wins="','"')) ///wins
-ds_list_add(jogador4,string_pick(text,' losses="','"')) ///losses
 
-text=string_replace(text,'&lt;/span&gt;&lt;br&gt;','')
-ds_list_add(jogador4,real(string_pick(text,'&lt;/span&gt;&lt;br&gt;',' ')))
-
-tile_set_scale(tile_add(background_add(ds_list_find_value(jogador4,6)+'.png',0,1),0,0,192,192,96,204,1),0.333,0.333)
-obj=instance_create(160,68*3+16,drawner_ativa) obj.text=string_replace(ds_list_find_value(jogador4,6),'_',' ')+' -'+string(ds_list_find_value(jogador4,9))+'pdl' obj.colour=c_white
-obj=instance_create(160,68*3+32,drawner_ativa) obj.text='Wins: '+string_replace(ds_list_find_value(jogador4,7),'_',' ') obj.colour=c_lime
-obj=instance_create(160,68*3+48,drawner_ativa) obj.text='Losses: '+string_replace(ds_list_find_value(jogador4,8),'_',' ') obj.colour=c_red
+if jogador4_exists=1
+{
+for(texttt=text;string_pos(':[{"name":',texttt)!=0;textt=string_get(texttt,':[{"name":','}]}]'))
+{
+textt=string_get(texttt,':[{"name":','}]}]')
+texttt=string_replace(texttt,':[{"name":','')
+texttt=string_replace(texttt,'}]}]','')
+if is_string(string_pick(textt,'"playerOrTeamId":"','"')) = 1
+{
+if string_pick(textt,'"playerOrTeamId":"','"') = ds_list_find_value(jogador4,0)
+{
+if string_pick(textt,'"queue":"','"') = 'RANKED_SOLO_5x5'
+{
+ds_list_add(jogador4,string_pick(textt,'"tier":"','"')+'_'+string_pick(textt,'"division":"','"')) ///elo 6
+ds_list_add(jogador4,ds_list_find_value(jogador4,6)+' ('+string_pick(textt,'"leaguePoints":',',')+')') ///pdl 7
+ds_list_add(jogador4,string_pick(textt,'"wins":',',')+'/'+string_pick(textt,'"losses":',','))
+if file_exists(ds_list_find_value(jogador4,6)+'.png')
+{
+tile_set_scale(tile_add(background_add(ds_list_find_value(jogador4,6)+'.png',0,1),0,0,192,192,96,(4-1)*68,1),0.333,0.333)
+}
+else
+{
+tile_set_scale(tile_add(background_add('UNRANKED_.png',0,1),0,0,192,192,96,(4-1)*68,1),0.333,0.333)
+}
+obj=instance_create(160,(4-1)*68+16,drawner_ativa) obj.text=ds_list_find_value(jogador4,7) obj.colour=c_white ///Colocando o elo
+obj=instance_create(160,(4-1)*68+32,drawner_ativa) obj.text='Wins/Losses: '+ds_list_find_value(jogador4,8) obj.colour=c_white ///Colocando o elo
 }
 }
-
+}
+}
+}
 ///Pegando elo jogador5
-if ds_map_find_value(async_load, "id") == gett5
-{
-if ds_map_find_value(async_load, "status") == 0
-{
-text = ds_map_find_value(async_load, "result");
-ds_list_add(jogador5,string_pick(text,'&lt;img src="//static.teemo.com.br/lol/ranks/','.')) ///elo
-ds_list_add(jogador5,string_pick(text,' wins="','"')) ///wins
-ds_list_add(jogador5,string_pick(text,' losses="','"')) ///losses
 
-text=string_replace(text,'&lt;/span&gt;&lt;br&gt;','')
-ds_list_add(jogador5,real(string_pick(text,'&lt;/span&gt;&lt;br&gt;',' ')))
-
-tile_set_scale(tile_add(background_add(ds_list_find_value(jogador5,6)+'.png',0,1),0,0,192,192,96,272,1),0.333,0.333)
-obj=instance_create(160,68*4+16,drawner_ativa) obj.text=string_replace(ds_list_find_value(jogador5,6),'_',' ')+' -'+string(ds_list_find_value(jogador5,9))+'pdl' obj.colour=c_white
-obj=instance_create(160,68*4+32,drawner_ativa) obj.text='Wins: '+string_replace(ds_list_find_value(jogador5,7),'_',' ') obj.colour=c_lime
-obj=instance_create(160,68*4+48,drawner_ativa) obj.text='Losses: '+string_replace(ds_list_find_value(jogador5,8),'_',' ') obj.colour=c_red
+if jogador5_exists=1
+{
+for(texttt=text;string_pos(':[{"name":',texttt)!=0;textt=string_get(texttt,':[{"name":','}]}]'))
+{
+textt=string_get(texttt,':[{"name":','}]}]')
+texttt=string_replace(texttt,':[{"name":','')
+texttt=string_replace(texttt,'}]}]','')
+if is_string(string_pick(textt,'"playerOrTeamId":"','"')) = 1
+{
+if string_pick(textt,'"playerOrTeamId":"','"') = ds_list_find_value(jogador5,0)
+{
+if string_pick(textt,'"queue":"','"') = 'RANKED_SOLO_5x5'
+{
+ds_list_add(jogador5,string_pick(textt,'"tier":"','"')+'_'+string_pick(textt,'"division":"','"')) ///elo 6
+ds_list_add(jogador5,ds_list_find_value(jogador5,6)+' ('+string_pick(textt,'"leaguePoints":',',')+')') ///pdl 7
+ds_list_add(jogador5,string_pick(textt,'"wins":',',')+'/'+string_pick(textt,'"losses":',','))
+if file_exists(ds_list_find_value(jogador5,6)+'.png')
+{
+tile_set_scale(tile_add(background_add(ds_list_find_value(jogador5,6)+'.png',0,1),0,0,192,192,96,(5-1)*68,1),0.333,0.333)
+}
+else
+{
+tile_set_scale(tile_add(background_add('UNRANKED_.png',0,1),0,0,192,192,96,(5-1)*68,1),0.333,0.333)
+}
+obj=instance_create(160,(5-1)*68+16,drawner_ativa) obj.text=ds_list_find_value(jogador5,7) obj.colour=c_white ///Colocando o elo
+obj=instance_create(160,(5-1)*68+32,drawner_ativa) obj.text='Wins/Losses: '+ds_list_find_value(jogador5,8) obj.colour=c_white ///Colocando o elo
 }
 }
-
+}
+}
+}
 ///Pegando elo jogador6
-if ds_map_find_value(async_load, "id") == gett6
-{
-if ds_map_find_value(async_load, "status") == 0
-{
-text = ds_map_find_value(async_load, "result");
-ds_list_add(jogador6,string_pick(text,'&lt;img src="//static.teemo.com.br/lol/ranks/','.')) ///elo
-ds_list_add(jogador6,string_pick(text,' wins="','"')) ///wins
-ds_list_add(jogador6,string_pick(text,' losses="','"')) ///losses
 
-text=string_replace(text,'&lt;/span&gt;&lt;br&gt;','')
-ds_list_add(jogador6,real(string_pick(text,'&lt;/span&gt;&lt;br&gt;',' ')))
-
-tile_set_scale(tile_add(background_add(ds_list_find_value(jogador6,6)+'.png',0,1),0,0,192,192,96,340,1),0.333,0.333)
-obj=instance_create(160,68*5+16,drawner_ativa) obj.text=string_replace(ds_list_find_value(jogador6,6),'_',' ')+' -'+string(ds_list_find_value(jogador6,9))+'pdl' obj.colour=c_white
-obj=instance_create(160,68*5+32,drawner_ativa) obj.text='Wins: '+string_replace(ds_list_find_value(jogador6,7),'_',' ') obj.colour=c_lime
-obj=instance_create(160,68*5+48,drawner_ativa) obj.text='Losses: '+string_replace(ds_list_find_value(jogador6,8),'_',' ') obj.colour=c_red
+if jogador6_exists=1
+{
+for(texttt=text;string_pos(':[{"name":',texttt)!=0;textt=string_get(texttt,':[{"name":','}]}]'))
+{
+textt=string_get(texttt,':[{"name":','}]}]')
+texttt=string_replace(texttt,':[{"name":','')
+texttt=string_replace(texttt,'}]}]','')
+if is_string(string_pick(textt,'"playerOrTeamId":"','"')) = 1
+{
+if string_pick(textt,'"playerOrTeamId":"','"') = ds_list_find_value(jogador6,0)
+{
+if string_pick(textt,'"queue":"','"') = 'RANKED_SOLO_5x5'
+{
+ds_list_add(jogador6,string_pick(textt,'"tier":"','"')+'_'+string_pick(textt,'"division":"','"')) ///elo 6
+ds_list_add(jogador6,ds_list_find_value(jogador6,6)+' ('+string_pick(textt,'"leaguePoints":',',')+')') ///pdl 7
+ds_list_add(jogador6,string_pick(textt,'"wins":',',')+'/'+string_pick(textt,'"losses":',','))
+if file_exists(ds_list_find_value(jogador6,6)+'.png')
+{
+tile_set_scale(tile_add(background_add(ds_list_find_value(jogador6,6)+'.png',0,1),0,0,192,192,96,(6-1)*68,1),0.333,0.333)
+}
+else
+{
+tile_set_scale(tile_add(background_add('UNRANKED_.png',0,1),0,0,192,192,96,(6-1)*68,1),0.333,0.333)
+}
+obj=instance_create(160,(6-1)*68+16,drawner_ativa) obj.text=ds_list_find_value(jogador6,7) obj.colour=c_white ///Colocando o elo
+obj=instance_create(160,(6-1)*68+32,drawner_ativa) obj.text='Wins/Losses: '+ds_list_find_value(jogador6,8) obj.colour=c_white ///Colocando o elo
+}
+}
+}
 }
 }
 ///Pegando elo jogador7
-if ds_map_find_value(async_load, "id") == gett7
-{
-if ds_map_find_value(async_load, "status") == 0
-{
-text = ds_map_find_value(async_load, "result");
-ds_list_add(jogador7,string_pick(text,'&lt;img src="//static.teemo.com.br/lol/ranks/','.')) ///elo
-ds_list_add(jogador7,string_pick(text,' wins="','"')) ///wins
-ds_list_add(jogador7,string_pick(text,' losses="','"')) ///losses
 
-text=string_replace(text,'&lt;/span&gt;&lt;br&gt;','')
-ds_list_add(jogador7,real(string_pick(text,'&lt;/span&gt;&lt;br&gt;',' ')))
-
-tile_set_scale(tile_add(background_add(ds_list_find_value(jogador7,6)+'.png',0,1),0,0,192,192,320+96,0,1),0.333,0.333)
-obj=instance_create(480,0+16,drawner_ativa) obj.text=string_replace(ds_list_find_value(jogador7,6),'_',' ')+' -'+string(ds_list_find_value(jogador7,9))+'pdl' obj.colour=c_white
-obj=instance_create(480,0+32,drawner_ativa) obj.text='Wins: '+string_replace(ds_list_find_value(jogador7,7),'_',' ') obj.colour=c_lime
-obj=instance_create(480,0+48,drawner_ativa) obj.text='Losses: '+string_replace(ds_list_find_value(jogador7,8),'_',' ') obj.colour=c_red
+if jogador7_exists=1
+{
+for(texttt=text;string_pos(':[{"name":',texttt)!=0;textt=string_get(texttt,':[{"name":','}]}]'))
+{
+textt=string_get(texttt,':[{"name":','}]}]')
+texttt=string_replace(texttt,':[{"name":','')
+texttt=string_replace(texttt,'}]}]','')
+if is_string(string_pick(textt,'"playerOrTeamId":"','"')) = 1
+{
+if string_pick(textt,'"playerOrTeamId":"','"') = ds_list_find_value(jogador7,0)
+{
+if string_pick(textt,'"queue":"','"') = 'RANKED_SOLO_5x5'
+{
+ds_list_add(jogador7,string_pick(textt,'"tier":"','"')+'_'+string_pick(textt,'"division":"','"')) ///elo 6
+ds_list_add(jogador7,ds_list_find_value(jogador7,6)+' ('+string_pick(textt,'"leaguePoints":',',')+')') ///pdl 7
+ds_list_add(jogador7,string_pick(textt,'"wins":',',')+'/'+string_pick(textt,'"losses":',','))
+if file_exists(ds_list_find_value(jogador7,6)+'.png')
+{
+tile_set_scale(tile_add(background_add(ds_list_find_value(jogador7,6)+'.png',0,1),0,0,192,192,96+320,(7-7)*68,1),0.333,0.333)
+}
+else
+{
+tile_set_scale(tile_add(background_add('UNRANKED_.png',0,1),0,0,192,192,96+320,(7-7)*68,1),0.333,0.333)
+}
+obj=instance_create(160+320,(7-7)*68+16,drawner_ativa) obj.text=ds_list_find_value(jogador7,7) obj.colour=c_white ///Colocando o elo
+obj=instance_create(160+320,(7-7)*68+32,drawner_ativa) obj.text='Wins/Losses: '+ds_list_find_value(jogador7,8) obj.colour=c_white ///Colocando o elo
 }
 }
-
+}
+}
+}
 ///Pegando elo jogador8
-if ds_map_find_value(async_load, "id") == gett8
-{
-if ds_map_find_value(async_load, "status") == 0
-{
-text = ds_map_find_value(async_load, "result");
-ds_list_add(jogador8,string_pick(text,'&lt;img src="//static.teemo.com.br/lol/ranks/','.')) ///elo
-ds_list_add(jogador8,string_pick(text,' wins="','"')) ///wins
-ds_list_add(jogador8,string_pick(text,' losses="','"')) ///losses
 
-text=string_replace(text,'&lt;/span&gt;&lt;br&gt;','')
-ds_list_add(jogador8,real(string_pick(text,'&lt;/span&gt;&lt;br&gt;',' ')))
-
-tile_set_scale(tile_add(background_add(ds_list_find_value(jogador8,6)+'.png',0,1),0,0,192,192,320+96,68,1),0.333,0.333)
-obj=instance_create(480,68+16,drawner_ativa) obj.text=string_replace(ds_list_find_value(jogador8,6),'_',' ')+' -'+string(ds_list_find_value(jogador8,9))+'pdl' obj.colour=c_white
-obj=instance_create(480,68+32,drawner_ativa) obj.text='Wins: '+string_replace(ds_list_find_value(jogador8,7),'_',' ') obj.colour=c_lime
-obj=instance_create(480,68+48,drawner_ativa) obj.text='Losses: '+string_replace(ds_list_find_value(jogador8,8),'_',' ') obj.colour=c_red
+if jogador8_exists=1
+{
+for(texttt=text;string_pos(':[{"name":',texttt)!=0;textt=string_get(texttt,':[{"name":','}]}]'))
+{
+textt=string_get(texttt,':[{"name":','}]}]')
+texttt=string_replace(texttt,':[{"name":','')
+texttt=string_replace(texttt,'}]}]','')
+if is_string(string_pick(textt,'"playerOrTeamId":"','"')) = 1
+{
+if string_pick(textt,'"playerOrTeamId":"','"') = ds_list_find_value(jogador8,0)
+{
+if string_pick(textt,'"queue":"','"') = 'RANKED_SOLO_5x5'
+{
+ds_list_add(jogador8,string_pick(textt,'"tier":"','"')+'_'+string_pick(textt,'"division":"','"')) ///elo 6
+ds_list_add(jogador8,ds_list_find_value(jogador8,6)+' ('+string_pick(textt,'"leaguePoints":',',')+')') ///pdl 7
+ds_list_add(jogador8,string_pick(textt,'"wins":',',')+'/'+string_pick(textt,'"losses":',','))
+if file_exists(ds_list_find_value(jogador8,6)+'.png')
+{
+tile_set_scale(tile_add(background_add(ds_list_find_value(jogador8,6)+'.png',0,1),0,0,192,192,96+320,(8-7)*68,1),0.333,0.333)
+}
+else
+{
+tile_set_scale(tile_add(background_add('UNRANKED_.png',0,1),0,0,192,192,96+320,(8-7)*68,1),0.333,0.333)
+}
+obj=instance_create(160+320,(8-7)*68+16,drawner_ativa) obj.text=ds_list_find_value(jogador8,7) obj.colour=c_white ///Colocando o elo
+obj=instance_create(160+320,(8-7)*68+32,drawner_ativa) obj.text='Wins/Losses: '+ds_list_find_value(jogador8,8) obj.colour=c_white ///Colocando o elo
 }
 }
-
+}
+}
+}
 ///Pegando elo jogador9
-if ds_map_find_value(async_load, "id") == gett9
-{
-if ds_map_find_value(async_load, "status") == 0
-{
-text = ds_map_find_value(async_load, "result");
-ds_list_add(jogador9,string_pick(text,'&lt;img src="//static.teemo.com.br/lol/ranks/','.')) ///elo
-ds_list_add(jogador9,string_pick(text,' wins="','"')) ///wins
-ds_list_add(jogador9,string_pick(text,' losses="','"')) ///losses
 
-text=string_replace(text,'&lt;/span&gt;&lt;br&gt;','')
-ds_list_add(jogador9,real(string_pick(text,'&lt;/span&gt;&lt;br&gt;',' ')))
-
-tile_set_scale(tile_add(background_add(ds_list_find_value(jogador9,6)+'.png',0,1),0,0,192,192,320+96,136,1),0.333,0.333)
-obj=instance_create(480,136+16,drawner_ativa) obj.text=string_replace(ds_list_find_value(jogador9,6),'_',' ')+' -'+string(ds_list_find_value(jogador9,9))+'pdl' obj.colour=c_white
-obj=instance_create(480,136+32,drawner_ativa) obj.text='Wins: '+string_replace(ds_list_find_value(jogador9,7),'_',' ') obj.colour=c_lime
-obj=instance_create(480,136+48,drawner_ativa) obj.text='Losses: '+string_replace(ds_list_find_value(jogador9,8),'_',' ') obj.colour=c_red
+if jogador9_exists=1
+{
+for(texttt=text;string_pos(':[{"name":',texttt)!=0;textt=string_get(texttt,':[{"name":','}]}]'))
+{
+textt=string_get(texttt,':[{"name":','}]}]')
+texttt=string_replace(texttt,':[{"name":','')
+texttt=string_replace(texttt,'}]}]','')
+if is_string(string_pick(textt,'"playerOrTeamId":"','"')) = 1
+{
+if string_pick(textt,'"playerOrTeamId":"','"') = ds_list_find_value(jogador9,0)
+{
+if string_pick(textt,'"queue":"','"') = 'RANKED_SOLO_5x5'
+{
+ds_list_add(jogador9,string_pick(textt,'"tier":"','"')+'_'+string_pick(textt,'"division":"','"')) ///elo 6
+ds_list_add(jogador9,ds_list_find_value(jogador9,6)+' ('+string_pick(textt,'"leaguePoints":',',')+')') ///pdl 7
+ds_list_add(jogador9,string_pick(textt,'"wins":',',')+'/'+string_pick(textt,'"losses":',','))
+if file_exists(ds_list_find_value(jogador9,6)+'.png')
+{
+tile_set_scale(tile_add(background_add(ds_list_find_value(jogador9,6)+'.png',0,1),0,0,192,192,96+320,(9-7)*68,1),0.333,0.333)
+}
+else
+{
+tile_set_scale(tile_add(background_add('UNRANKED_.png',0,1),0,0,192,192,96+320,(9-7)*68,1),0.333,0.333)
+}
+obj=instance_create(160+320,(9-7)*68+16,drawner_ativa) obj.text=ds_list_find_value(jogador9,7) obj.colour=c_white ///Colocando o elo
+obj=instance_create(160+320,(9-7)*68+32,drawner_ativa) obj.text='Wins/Losses: '+ds_list_find_value(jogador9,8) obj.colour=c_white ///Colocando o elo
 }
 }
-
+}
+}
+}
 ///Pegando elo jogador10
-if ds_map_find_value(async_load, "id") == gett10
-{
-if ds_map_find_value(async_load, "status") == 0
-{
-text = ds_map_find_value(async_load, "result");
-ds_list_add(jogador10,string_pick(text,'&lt;img src="//static.teemo.com.br/lol/ranks/','.')) ///elo
-ds_list_add(jogador10,string_pick(text,' wins="','"')) ///wins
-ds_list_add(jogador10,string_pick(text,' losses="','"')) ///losses
 
-text=string_replace(text,'&lt;/span&gt;&lt;br&gt;','')
-ds_list_add(jogador10,real(string_pick(text,'&lt;/span&gt;&lt;br&gt;',' ')))
-
-tile_set_scale(tile_add(background_add(ds_list_find_value(jogador10,6)+'.png',0,1),0,0,192,192,320+96,204,1),0.333,0.333)
-obj=instance_create(480,204+16,drawner_ativa) obj.text=string_replace(ds_list_find_value(jogador10,6),'_',' ')+' -'+string(ds_list_find_value(jogador10,9))+'pdl' obj.colour=c_white
-obj=instance_create(480,204+32,drawner_ativa) obj.text='Wins: '+string_replace(ds_list_find_value(jogador10,7),'_',' ') obj.colour=c_lime
-obj=instance_create(480,204+48,drawner_ativa) obj.text='Losses: '+string_replace(ds_list_find_value(jogador10,8),'_',' ') obj.colour=c_red
+if jogador10_exists=1
+{
+for(texttt=text;string_pos(':[{"name":',texttt)!=0;textt=string_get(texttt,':[{"name":','}]}]'))
+{
+textt=string_get(texttt,':[{"name":','}]}]')
+texttt=string_replace(texttt,':[{"name":','')
+texttt=string_replace(texttt,'}]}]','')
+if is_string(string_pick(textt,'"playerOrTeamId":"','"')) = 1
+{
+if string_pick(textt,'"playerOrTeamId":"','"') = ds_list_find_value(jogador10,0)
+{
+if string_pick(textt,'"queue":"','"') = 'RANKED_SOLO_5x5'
+{
+ds_list_add(jogador10,string_pick(textt,'"tier":"','"')+'_'+string_pick(textt,'"division":"','"')) ///elo 6
+ds_list_add(jogador10,ds_list_find_value(jogador10,6)+' ('+string_pick(textt,'"leaguePoints":',',')+')') ///pdl 7
+ds_list_add(jogador10,string_pick(textt,'"wins":',',')+'/'+string_pick(textt,'"losses":',','))
+if file_exists(ds_list_find_value(jogador10,6)+'.png')
+{
+tile_set_scale(tile_add(background_add(ds_list_find_value(jogador10,6)+'.png',0,1),0,0,192,192,96+320,(10-7)*68,1),0.333,0.333)
+}
+else
+{
+tile_set_scale(tile_add(background_add('UNRANKED_.png',0,1),0,0,192,192,96+320,(10-7)*68,1),0.333,0.333)
+}
+obj=instance_create(160+320,(10-7)*68+16,drawner_ativa) obj.text=ds_list_find_value(jogador10,7) obj.colour=c_white ///Colocando o elo
+obj=instance_create(160+320,(10-7)*68+32,drawner_ativa) obj.text='Wins/Losses: '+ds_list_find_value(jogador10,8) obj.colour=c_white ///Colocando o elo
 }
 }
-
+}
+}
+}
 ///Pegando elo jogador11
-if ds_map_find_value(async_load, "id") == gett11
-{
-if ds_map_find_value(async_load, "status") == 0
-{
-text = ds_map_find_value(async_load, "result");
-ds_list_add(jogador11,string_pick(text,'&lt;img src="//static.teemo.com.br/lol/ranks/','.')) ///elo
-ds_list_add(jogador11,string_pick(text,' wins="','"')) ///wins
-ds_list_add(jogador11,string_pick(text,' losses="','"')) ///losses
 
-text=string_replace(text,'&lt;/span&gt;&lt;br&gt;','')
-ds_list_add(jogador11,real(string_pick(text,'&lt;/span&gt;&lt;br&gt;',' ')))
-
-tile_set_scale(tile_add(background_add(ds_list_find_value(jogador11,6)+'.png',0,1),0,0,192,192,320+96,272,1),0.333,0.333)
-obj=instance_create(480,272+16,drawner_ativa) obj.text=string_replace(ds_list_find_value(jogador11,6),'_',' ')+' -'+string(ds_list_find_value(jogador11,9))+'pdl' obj.colour=c_white
-obj=instance_create(480,272+32,drawner_ativa) obj.text='Wins: '+string_replace(ds_list_find_value(jogador11,7),'_',' ') obj.colour=c_lime
-obj=instance_create(480,272+48,drawner_ativa) obj.text='Losses: '+string_replace(ds_list_find_value(jogador11,8),'_',' ') obj.colour=c_red
+if jogador11_exists=1
+{
+for(texttt=text;string_pos(':[{"name":',texttt)!=0;textt=string_get(texttt,':[{"name":','}]}]'))
+{
+textt=string_get(texttt,':[{"name":','}]}]')
+texttt=string_replace(texttt,':[{"name":','')
+texttt=string_replace(texttt,'}]}]','')
+if is_string(string_pick(textt,'"playerOrTeamId":"','"')) = 1
+{
+if string_pick(textt,'"playerOrTeamId":"','"') = ds_list_find_value(jogador11,0)
+{
+if string_pick(textt,'"queue":"','"') = 'RANKED_SOLO_5x5'
+{
+ds_list_add(jogador11,string_pick(textt,'"tier":"','"')+'_'+string_pick(textt,'"division":"','"')) ///elo 6
+ds_list_add(jogador11,ds_list_find_value(jogador11,6)+' ('+string_pick(textt,'"leaguePoints":',',')+')') ///pdl 7
+ds_list_add(jogador11,string_pick(textt,'"wins":',',')+'/'+string_pick(textt,'"losses":',','))
+if file_exists(ds_list_find_value(jogador11,6)+'.png')
+{
+tile_set_scale(tile_add(background_add(ds_list_find_value(jogador11,6)+'.png',0,1),0,0,192,192,96+320,(11-7)*68,1),0.333,0.333)
+}
+else
+{
+tile_set_scale(tile_add(background_add('UNRANKED_.png',0,1),0,0,192,192,96+320,(11-7)*68,1),0.333,0.333)
+}
+obj=instance_create(160+320,(11-7)*68+16,drawner_ativa) obj.text=ds_list_find_value(jogador11,7) obj.colour=c_white ///Colocando o elo
+obj=instance_create(160+320,(11-7)*68+32,drawner_ativa) obj.text='Wins/Losses: '+ds_list_find_value(jogador11,8) obj.colour=c_white ///Colocando o elo
 }
 }
-
+}
+}
+}
 ///Pegando elo jogador12
-if ds_map_find_value(async_load, "id") == gett12
-{
-if ds_map_find_value(async_load, "status") == 0
-{
-text = ds_map_find_value(async_load, "result");
-ds_list_add(jogador12,string_pick(text,'&lt;img src="//static.teemo.com.br/lol/ranks/','.')) ///elo
-ds_list_add(jogador12,string_pick(text,' wins="','"')) ///wins
-ds_list_add(jogador12,string_pick(text,' losses="','"')) ///losses
 
-text=string_replace(text,'&lt;/span&gt;&lt;br&gt;','')
-ds_list_add(jogador12,real(string_pick(text,'&lt;/span&gt;&lt;br&gt;',' ')))
+if jogador12_exists=1
+{
+for(texttt=text;string_pos(':[{"name":',texttt)!=0;textt=string_get(texttt,':[{"name":','}]}]'))
+{
+textt=string_get(texttt,':[{"name":','}]}]')
+texttt=string_replace(texttt,':[{"name":','')
+texttt=string_replace(texttt,'}]}]','')
+if is_string(string_pick(textt,'"playerOrTeamId":"','"')) = 1
+{
+if string_pick(textt,'"playerOrTeamId":"','"') = ds_list_find_value(jogador12,0)
+{
+if string_pick(textt,'"queue":"','"') = 'RANKED_SOLO_5x5'
+{
+ds_list_add(jogador12,string_pick(textt,'"tier":"','"')+'_'+string_pick(textt,'"division":"','"')) ///elo 6
+ds_list_add(jogador12,ds_list_find_value(jogador12,6)+' ('+string_pick(textt,'"leaguePoints":',',')+')') ///pdl 7
+ds_list_add(jogador12,string_pick(textt,'"wins":',',')+'/'+string_pick(textt,'"losses":',','))
+if file_exists(ds_list_find_value(jogador12,6)+'.png')
+{
+tile_set_scale(tile_add(background_add(ds_list_find_value(jogador12,6)+'.png',0,1),0,0,192,192,96+320,(12-7)*68,1),0.333,0.333)
+}
+else
+{
+tile_set_scale(tile_add(background_add('UNRANKED_.png',0,1),0,0,192,192,96+320,(12-7)*68,1),0.333,0.333)
+}
+obj=instance_create(160+320,(12-7)*68+16,drawner_ativa) obj.text=ds_list_find_value(jogador12,7) obj.colour=c_white ///Colocando o elo
+obj=instance_create(160+320,(12-7)*68+32,drawner_ativa) obj.text='Wins/Losses: '+ds_list_find_value(jogador12,8) obj.colour=c_white ///Colocando o elo
+}
+}
+}
+}
+}
 
-tile_set_scale(tile_add(background_add(ds_list_find_value(jogador12,6)+'.png',0,1),0,0,192,192,320+96,340,1),0.333,0.333)
-obj=instance_create(480,340+16,drawner_ativa) obj.text=string_replace(ds_list_find_value(jogador12,6),'_',' ')+' -'+string(ds_list_find_value(jogador12,9))+'pdl' obj.colour=c_white
-obj=instance_create(480,304+32,drawner_ativa) obj.text='Wins: '+string_replace(ds_list_find_value(jogador12,7),'_',' ') obj.colour=c_lime
-obj=instance_create(480,304+48,drawner_ativa) obj.text='Losses: '+string_replace(ds_list_find_value(jogador12,8),'_',' ') obj.colour=c_red
+
+
 }
 }
 </string>
